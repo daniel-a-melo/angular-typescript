@@ -62,9 +62,9 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 ### Useful links
 
-* [http://json.schemastore.org/tsconfig](tsconfig.json schema)
-* [http://bower.io/search/](Bower registry)
-* [http://definitelytyped.org/tsd/](DefinetlyTyped registry)
+* [tsconfig.json schema](http://json.schemastore.org/tsconfig)
+* [Bower registry](http://bower.io/search/)
+* [DefinetlyTyped registry](http://definitelytyped.org/tsd/)
 
 ### TODO
 
