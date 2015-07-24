@@ -1,0 +1,71 @@
+{
+  "name": "typescript-angular-nomodules-seed",
+  "version": "1.0.0",
+  "authors": [
+    "Daniel Melo"
+  ],
+  "description": "AngularJS 1.x application with TypeScript 1.5",
+  "main": "main.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.2",
+    "angular-route": "~1.4.3",
+    "lodash": "~3.10.0",
+    "qunit": "~1.18.0"
+  },
+  "overrides": {
+    "angular": {
+      "main": [
+        "angular.js",
+        "angular.min.js",
+        "angular.min.js.map"
+      ],
+      "normalize": {
+        "js": [
+          "*.js",
+          "*.map"
+        ]
+      }
+    },
+    "angular-route": {
+      "main": [
+        "angular-route.js",
+        "angular-route.min.js",
+        "angular-route.min.js.map"
+      ],
+      "normalize": {
+        "js": [
+          "*.js",
+          "*.map"
+        ]
+      }
+    },
+    "lodash": {
+      "main": [
+        "lodash.min.js"
+      ],
+      "normalize": {
+        "js": [
+          "*.js",
+          "*.map"
+        ]
+      }
+    },
+    "qunit" : {
+      "normalize": {
+        "js": [
+          "*.js",
+          "*.map"
+        ],
+        "css" : ["*.css"]
+      }
+    }
+  }
+}

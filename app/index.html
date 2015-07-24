@@ -1,0 +1,36 @@
+ <!doctype html>
+  <html>
+  	<head>
+       <title>Star wars API frontend - ${version}</title>
+    </head>
+    <body>
+       	 <div style="margin:0 20px 20px 0;">
+            <a href="#/species">List species</a>
+            <a href="#/species/add">Add species</a>
+         </div>
+
+         <div data-ng-view></div>
+
+         <div style="margin:20px 20px 20px 0px;">
+           Powered by <a href="http://swapi.co/">The Star Wars API</a>
+           <img src="images/sw-icon.png">
+         </div>
+
+        <!-- build:js vendor.js -->
+        <script src="bower_dependencies/angular/js/angular.min.js"></script>
+        <script src="bower_dependencies/angular-route/js/angular-route.min.js"></script>
+        <script src="bower_dependencies/lodash/js/lodash.min.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js app.js -->
+        <script src="transpiled/ts/services/BaseService.js"></script>
+        <script src="transpiled/ts/services/StarWarsService.js"></script>
+        <script src="transpiled/ts/controllers/SpeciesFormController.js"></script>
+        <script src="transpiled/ts/controllers/SpeciesListController.js"></script>
+        <script src="transpiled/ts/directives/HighlightDirective.js"></script>
+        <script src="transpiled/ts/filters/NotApplicableFilter.js"></script>
+        <script src="transpiled/ts/RouteConfig.js"></script>
+        <script src="transpiled/ts/AppBootstrap.js"></script>
+        <!-- endbuild -->
+    </body>
+  </html>

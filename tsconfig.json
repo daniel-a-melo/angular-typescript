@@ -1,0 +1,42 @@
+{
+    "version": "1.5.1",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": false,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "inlineSourceMap": true,
+        "outDir": "./app/transpiled",
+        "noEmitHelpers": false
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./typings/**/*.ts",
+        "./app-typings/**/*.ts"
+    ],
+    "files": [
+        "./src/test/controllers/SpeciesFormControllerTest.ts",
+        "./src/test/filters/NotApplicableFilterTest.ts",
+        "./src/test/testsBootstrap.ts",
+        "./src/ts/AppBootstrap.ts",
+        "./src/ts/RouteConfig.ts",
+        "./src/ts/controllers/SpeciesFormController.ts",
+        "./src/ts/controllers/SpeciesListController.ts",
+        "./src/ts/directives/HighlightDirective.ts",
+        "./src/ts/domain/SpeciesResult.ts",
+        "./src/ts/filters/NotApplicableFilter.ts",
+        "./src/ts/services/BaseService.ts",
+        "./src/ts/services/StarWarsService.ts",
+        "./typings/angularjs/angular-route.d.ts",
+        "./typings/angularjs/angular.d.ts",
+        "./typings/jquery/jquery.d.ts",
+        "./typings/lodash/lodash.d.ts",
+        "./typings/qunit/qunit.d.ts",
+        "./typings/tsd.d.ts",
+        "./app-typings/qunit.d.ts"
+    ]
+}

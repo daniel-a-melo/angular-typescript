@@ -1,0 +1,10 @@
+<table>
+  <thead>
+     <td>Name</td>
+     <td>Hair color</td>
+  <thead>
+  <tr data-ng-repeat="species in ctrl.speciesList">
+    <td>{{species.name}}</td>
+    <td data-high-light="none" data-value="species.hair_colors">{{species.hair_colors|naFilter}}</td>
+  </tr>
+</table>
