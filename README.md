@@ -69,5 +69,5 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 ### TODO
 
 - [ ] Add support for modules (JSPM)
-- [ ] Add support for source map in test coverage tool. See gotwarlost/istanbul#122
+- [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Check [https://github.com/ulfryk/angular-typescript]
