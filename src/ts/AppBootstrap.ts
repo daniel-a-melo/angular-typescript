@@ -7,7 +7,7 @@ module SwapApp {
   let appName : string = 'app';
 
   angular.module(appName, ['ngRoute']).service("starWarsService", SwapApp.Services.StarWarsService);
-  angular.module(appName).constant('_', _);
+  angular.module(appName).constant('_', _); //Adding lodash globas as angular constant to facilitate unit testing
 
   angular.module(appName).directive("highLight", SwapApp.Directives.HighlightDirective.Factory());
   angular.module(appName).controller("speciesListController", SwapApp.Controllers.SpeciesListController);
