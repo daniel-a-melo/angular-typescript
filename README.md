@@ -11,13 +11,13 @@ Make sure node.js and git is installed
 
 ### Main gulp tasks
 
-`gulp restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
-`gulp serve` : Starts HTTP server with server root set to `app` directory
-`gulp serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
-`gulp transpile` : Transpiles all TypeScript files
-`gulp test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
-`gulp bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
-`gulp package` : Creates a ZIP files containing the bundled version
+* `gulp restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
+* `gulp serve` : Starts HTTP server with server root set to `app` directory
+* `gulp serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
+* `gulp transpile` : Transpiles all TypeScript files
+* `gulp test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
+* `gulp bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
+* `gulp package` : Creates a ZIP files containing the bundled version
 
 ### Directory structure
 
@@ -54,11 +54,17 @@ It is possible to use [QUnit](https://qunitjs.com/) test runner using the follow
 
 `http://localhost:<port>/test-runner.html`
 
+### IDE information
+
+*Atom*
+
+The [https://atom.io/packages/atom-typescript](Atom typescript) package supports a `filesGlob` property on `tsconfig.json` that is not supported by TypeScript transpiler. It automatically derives the file names of `files` property based on `filesGlob`
+
 ### Useful links
 
-`tsconfig.json` json schema : [http://json.schemastore.org/tsconfig]
-Bower registry : [http://bower.io/search/]
-DefinetlyTyped (tsd) registry : [http://definitelytyped.org/tsd/]
+* [http://json.schemastore.org/tsconfig](tsconfig.json schema)
+* [http://bower.io/search/](Bower registry)
+* [http://definitelytyped.org/tsd/](DefinetlyTyped registry)
 
 ### TODO
 
