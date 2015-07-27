@@ -65,6 +65,9 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 * [tsconfig.json schema](http://json.schemastore.org/tsconfig)
 * [Bower registry](http://bower.io/search/)
 * [DefinetlyTyped registry](http://definitelytyped.org/tsd/)
+* [typescript decorators, issue #249](https://github.com/Microsoft/TypeScript/issues/2249)
+* [StackOverflow: How to implement a typescript decorator](http://stackoverflow.com/questions/29775830/how-to-implement-a-typescript-decorator)
+* [Decorators & metadata reflection in TypeScript: From Novice to Expert](http://blog.wolksoftware.com/decorators-reflection-javascript-typescript)
 
 
 ### TODO
