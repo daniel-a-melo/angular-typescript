@@ -26,6 +26,7 @@
         "./src/ts/RouteConfig.ts",
         "./src/ts/controllers/SpeciesFormController.ts",
         "./src/ts/controllers/SpeciesListController.ts",
+        "./src/ts/decorators/LogDecorator.ts",
         "./src/ts/directives/HighlightDirective.ts",
         "./src/ts/domain/SpeciesResult.ts",
         "./src/ts/filters/NotApplicableFilter.ts",

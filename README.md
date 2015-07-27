@@ -66,8 +66,10 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 * [Bower registry](http://bower.io/search/)
 * [DefinetlyTyped registry](http://definitelytyped.org/tsd/)
 
+
 ### TODO
 
 - [ ] Add support for modules (JSPM)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
-- [ ] Check [https://github.com/ulfryk/angular-typescript]
+- [ ] Use angular 1.x decorators [https://github.com/ulfryk/angular-typescript]
+- [ ] Check [SinonJS](http://sinonjs.org)

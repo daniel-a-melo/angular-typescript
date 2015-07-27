@@ -27,6 +27,7 @@ module.exports = function(config) {
       'app/bower_dependencies/angular/js/*.js',
       'app/bower_dependencies/angular-route/js/*.js',
       'app/bower_dependencies/lodash/js/*.js',
+      'app/transpiled/ts/decorators/LogDecorator.js',
       'app/transpiled/ts/services/BaseService.js',
       'app/transpiled/ts/services/StarWarsService.js',
       'app/transpiled/ts/controllers/SpeciesFormController.js',

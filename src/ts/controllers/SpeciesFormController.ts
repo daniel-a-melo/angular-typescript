@@ -1,6 +1,7 @@
 module SwapApp.Controllers {
 
   import ISpecies = SwapApp.Domain.ISpecies;
+  import log = SwapApp.Decorators.log;
 
   export class SpeciesFormController {
 
@@ -11,6 +12,7 @@ module SwapApp.Controllers {
 
     constructor($scope : ng.IScope) {}
 
+    @log
     save() : void {
 
       if (this.species.name === 'error') {
