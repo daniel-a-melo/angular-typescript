@@ -31,7 +31,7 @@ module at {
         (t: any, key: string, index: number): void;
     }
 
-    export function instantiate(moduleName: string, name: string, mode: string): IClassAnnotationDecorator {
+    function instantiate(moduleName: string, name: string, mode: string): IClassAnnotationDecorator {
         return (target: any): void => {
             angular.module(moduleName)[mode](name, target);
         };

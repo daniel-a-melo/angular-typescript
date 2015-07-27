@@ -30,6 +30,7 @@ module.exports = function(config) {
       'app/transpiled/ts/AppConfig.js',
       'app/transpiled/ts/decorators/LogDecorator.js',
       'app/transpiled/ts/decorators/at-angular.js',
+      'app/transpiled/ts/decorators/at-angular-ext.js',
       'app/transpiled/ts/services/BaseService.js',
       'app/transpiled/ts/services/StarWarsService.js',
       'app/transpiled/ts/controllers/SpeciesFormController.js',

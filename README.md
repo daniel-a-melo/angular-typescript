@@ -71,6 +71,6 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 - [ ] Add support for modules (JSPM)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
-- [ ] Improve usage of Angular 1 decorators (directives, filters, providers) [https://github.com/ulfryk/angular-typescript]
+- [ ] Improve usage of Angular 1 decorators (directives, providers) [https://github.com/ulfryk/angular-typescript]
 - [ ] Setup transpile process for typescript bower dependencies (currently it assumes all bower dependencies are JavaScript)
 - [ ] Check [SinonJS](http://sinonjs.org)
