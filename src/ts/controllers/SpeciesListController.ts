@@ -4,9 +4,9 @@ module SwapApp.Controllers {
   import ISpeciesResult = SwapApp.Domain.ISpeciesResult;
   import ISpecies = SwapApp.Domain.ISpecies;
 
+  @at.controller(SwapApp.mainModule, 'speciesListController')
+  @at.inject('$scope', '_', 'starWarsService')
   export class SpeciesListController {
-
-    public static $inject = ['$scope', '_', 'starWarsService'];
 
     private starWarsService : StarWarsService;
     public speciesList : ISpecies[];

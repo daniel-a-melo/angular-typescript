@@ -3,14 +3,13 @@ module SwapApp.Controllers {
   import ISpecies = SwapApp.Domain.ISpecies;
   import log = SwapApp.Decorators.log;
 
+  @at.controller(SwapApp.mainModule, 'speciesFormController')
   export class SpeciesFormController {
-
-    public static $inject = ['$scope'];
 
     species : ISpecies;
     message : string = '';
 
-    constructor($scope : ng.IScope) {}
+    constructor(@at.inject('$scope') $scope : ng.IScope) {}
 
     @log
     save() : void {

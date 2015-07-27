@@ -8,7 +8,7 @@ module SwapApp.Decorators {
         var a = args.map(a => JSON.stringify(a)).join();
         var result = originalMethod.apply(this, args);
         var r = JSON.stringify(result);
-        console.log(`Call: ${key}(${a}) => ${r}`);
+        console.log(`Method call: ${key}(${a}) => ${r}`);
         return result;
     }
 
