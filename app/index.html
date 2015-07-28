@@ -4,17 +4,11 @@
        <title>Star wars API frontend - ${version}</title>
     </head>
     <body>
-       	 <div style="margin:0 20px 20px 0;">
-            <a href="#/species">List species</a>
-            <a href="#/species/add">Add species</a>
-         </div>
+        <div data-ng-include src="'partials/menu.html'"></div>
 
-         <div data-ng-view></div>
+        <div data-ng-view></div>
 
-         <div style="margin:20px 20px 20px 0px;">
-           Powered by <a href="http://swapi.co/">The Star Wars API</a>
-           <img src="images/sw-icon.png">
-         </div>
+        <div data-ng-include src="'partials/footer.html'"></div>
 
         <!-- build:js vendor.js -->
         <script src="bower_dependencies/angular/js/angular.min.js"></script>
