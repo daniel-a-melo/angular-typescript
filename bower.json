@@ -18,7 +18,8 @@
     "angular": "~1.4.2",
     "angular-route": "~1.4.3",
     "lodash": "~3.10.0",
-    "qunit": "~1.18.0"
+    "qunit": "~1.18.0",
+    "angular-typescript": "~0.0.3"
   },
   "overrides": {
     "angular": {
@@ -58,13 +59,25 @@
         ]
       }
     },
-    "qunit" : {
+    "qunit": {
       "normalize": {
         "js": [
           "*.js",
           "*.map"
         ],
-        "css" : ["*.css"]
+        "css": [
+          "*.css"
+        ]
+      }
+    },
+    "angular-typescript": {
+      "main": [
+        "at-angular.ts"
+      ],
+      "normalize": {
+        "ts": [
+          "*.ts"
+        ]
       }
     }
   }

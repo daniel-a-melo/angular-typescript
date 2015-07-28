@@ -27,19 +27,19 @@ module.exports = function(config) {
       'app/bower_dependencies/angular/js/*.js',
       'app/bower_dependencies/angular-route/js/*.js',
       'app/bower_dependencies/lodash/js/*.js',
-      'app/transpiled/ts/AppConfig.js',
-      'app/transpiled/ts/decorators/LogDecorator.js',
-      'app/transpiled/ts/decorators/at-angular.js',
-      'app/transpiled/ts/decorators/at-angular-ext.js',
-      'app/transpiled/ts/services/BaseService.js',
-      'app/transpiled/ts/services/StarWarsService.js',
-      'app/transpiled/ts/controllers/SpeciesFormController.js',
-      'app/transpiled/ts/controllers/SpeciesListController.js',
-      'app/transpiled/ts/directives/HighlightDirective.js',
-      'app/transpiled/ts/filters/NotApplicableFilter.js',
-      'app/transpiled/ts/RouteConfig.js',
-      'app/transpiled/ts/AppBootstrap.js',
-      'app/transpiled/test/**/*Test.js',
+      'app/transpiled/app/bower_dependencies/angular-typescript/ts/*.js',
+      'app/transpiled/src/ts/AppConfig.js',
+      'app/transpiled/src/ts/decorators/LogDecorator.js',
+      'app/transpiled/src/ts/decorators/at-angular-ext.js',
+      'app/transpiled/src/ts/services/BaseService.js',
+      'app/transpiled/src/ts/services/StarWarsService.js',
+      'app/transpiled/src/ts/controllers/SpeciesFormController.js',
+      'app/transpiled/src/ts/controllers/SpeciesListController.js',
+      'app/transpiled/src/ts/directives/HighlightDirective.js',
+      'app/transpiled/src/ts/filters/NotApplicableFilter.js',
+      'app/transpiled/src/ts/RouteConfig.js',
+      'app/transpiled/src/ts/AppBootstrap.js',
+      'app/transpiled/src/test/**/*Test.js',
     ],
 
 
@@ -51,7 +51,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/transpiled/ts/**/*.js': ['coverage']
+      'app/transpiled/src/ts/**/*.js': ['coverage']
     },
 
 

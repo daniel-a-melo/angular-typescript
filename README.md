@@ -34,7 +34,7 @@ project
 │   └───ts [Application code]
 └───app-typings [TypeScript definition files (.d.ts) written for the application]
 └───typings [TypeScript definition files (d.ts) for third-party javascript libraries. Retrieved using tsd]
-└───app [Resource files (html, css, images, fonts). Only folder that needs to be served]
+└───app [Resource files (html, css, images, fonts). Only folder that needs to be served. Includes typescript files from bower components though]
 │   ├───transpiled [Output folder for TypeScript transpilation]
 │   └───bower_dependencies [Main files of bower packages]
 └───dist [Bundled version for distribution. See `gulp bundle`]
@@ -74,6 +74,6 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 - [ ] Add support for modules (JSPM)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
+- [ ] Improve directive definition pattern
 - [ ] Improve usage of Angular 1 decorators (directives, providers) [https://github.com/ulfryk/angular-typescript]
-- [ ] Setup transpile process for typescript bower dependencies (currently it assumes all bower dependencies are JavaScript)
 - [ ] Check [SinonJS](http://sinonjs.org)

@@ -19,7 +19,7 @@ module SwapApp.Directives {
       };
     }
 
-    static Factory() {
+    static create() {
       var directive = () => {
         return new HighlightDirective();
       };
