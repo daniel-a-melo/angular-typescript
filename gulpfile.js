@@ -14,7 +14,7 @@ var tsd = require('gulp-tsd');
 
 var appPaths = {
   baseSource : 'src', //TypeScript source file root
-  get dependenciesSource() { return this.runtimeFilesBase + '/bower_dependencies/**/ts/*.ts' },
+  get dependenciesSource() { return this.runtimeFilesBase + '/bower_dependencies/**/ts/*.ts' }, //TypeScript bower dependencies that needs to be transpiled
   runtimeFilesBase : 'app', //Directory where served files are stored (html, images, css, fonts, javascript (transpiled or third-party))
   get output() { return this.runtimeFilesBase + '/transpiled' }, //Output dir for transpiled TypeScript
   get sourcePath() { return [this.dependenciesSource, this.baseSource +  '/**/*.ts']}, //GLOB for TypeScript sources
