@@ -14,11 +14,10 @@ var tsd = require('gulp-tsd');
 
 var appPaths = {
   baseSource : 'src', //TypeScript source file root
-  get dependenciesSource() { return this.runtimeFilesBase + '/bower_dependencies/**/ts/*.ts' }, //TypeScript bower dependencies that needs to be transpiled
+  get dependenciesSource() { return this.runtimeFilesBase + '/bower_dependencies/**/ts/*.ts' }, //TypeScript bower dependencies that need to be transpiled
   runtimeFilesBase : 'app', //Directory where served files are stored (html, images, css, fonts, javascript (transpiled or third-party))
   get output() { return this.runtimeFilesBase + '/transpiled' }, //Output dir for transpiled TypeScript
   get sourcePath() { return [this.dependenciesSource, this.baseSource +  '/**/*.ts']}, //GLOB for TypeScript sources
-  //html : './*.html',
   distributionPath : 'dist', //Directory for bundled verion of application
   get htmlFilesPath() { return [this.runtimeFilesBase + '/**/*.html'] }, //GLOB for html files that will be processed during bundling
   get resourcesFilesPath() { return [this.runtimeFilesBase + '/**/*.png', this.runtimeFilesBase + '/**/*.ico'] } //GLOB for resource files that will be processed during bundling
@@ -52,7 +51,7 @@ gulp.task('normalize-bower-components', ['bower-install'], function(done) {
         .pipe(gulp.dest('./' + appPaths.runtimeFilesBase + '/bower_dependencies/'))
 });
 
-// Fetch all bower dependencies, copies its main files into ${appPaths.runtimeFilesBase}/bower_dependencies and fetches all TSD files
+// Fetch all bower dependencies, copies its main files into ${appPaths.runtimeFilesBase}/bower_dependencies and fetches all .d.ts files
 gulp.task('fetch-all-dependencies', ['normalize-bower-components', 'tsd-install']);
 
 
@@ -71,7 +70,7 @@ function doTranspilation(done) {
 // Transpile typescript
 gulp.task('transpile', doTranspilation);
 
-// Fetch all dependencies (bower, tsd) and then transpiles typescript
+// Fetch all dependencies (bower, definetly typed) and then transpiles typescript
 gulp.task('restore', ['fetch-all-dependencies'], doTranspilation);
 
 // Transpiles typescript and run unit tests using Karma
