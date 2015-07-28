@@ -1,9 +1,13 @@
+//Source : http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/
+
 module SwapApp.Directives {
+
 
   interface IHighlightScope extends ng.IScope {
     value : string;
   }
 
+  @at.directiveFactory(SwapApp.mainModule, 'highLight')
   export class HighlightDirective {
 
     link: (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => void;
@@ -11,7 +15,7 @@ module SwapApp.Directives {
       value : '=' //Look for an attribute with same name (value) in the element
     };
 
-    constructor() {
+    constructor(/* list of dependencies */) {
       HighlightDirective.prototype.link =  ($scope: IHighlightScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
         if (attrs['highLight'] === $scope.value) {
           element.css('color', 'red');
@@ -20,8 +24,8 @@ module SwapApp.Directives {
     }
 
     static create() {
-      var directive = () => {
-        return new HighlightDirective();
+      var directive = (/* list of dependencies */) => {
+        return new HighlightDirective(/* list of dependencies */);
       };
 
       //directive.$inject = ['']; //List dependencies to be injected when needed

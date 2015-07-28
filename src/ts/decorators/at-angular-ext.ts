@@ -10,6 +10,12 @@ module at {
       };
     }
 
+    export function directiveFactory(moduleName: string, directiveName: string) : at.IClassAnnotationDecorator  {
+        return (target: any): void => {
+          angular.module(moduleName).directive(directiveName, target.create());
+        };
+    }
+
     export function config(moduleName: string, dependencies : string[]) : at.IClassAnnotationDecorator  {
       return (target: any): void => {
         var configList: any[] = dependencies.slice();
