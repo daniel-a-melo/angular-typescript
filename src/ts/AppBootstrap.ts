@@ -3,5 +3,4 @@
 // Figure out it is only needed on this file and not on the others
 
 angular.module(SwapApp.mainModule).directive("highLight", SwapApp.Directives.HighlightDirective.create());
-angular.module(SwapApp.mainModule).config(['$routeProvider', SwapApp.Router.configRouter]);
 angular.element(document).ready(() => angular.bootstrap(document, [SwapApp.mainModule]));

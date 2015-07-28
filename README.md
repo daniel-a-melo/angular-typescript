@@ -75,5 +75,5 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 - [ ] Add support for modules (JSPM)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Improve directive definition pattern
-- [ ] Improve usage of Angular 1 decorators (directives, providers) [https://github.com/ulfryk/angular-typescript]
+- [ ] Turn the decorators `@at.config` and `@at.filter` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
 - [ ] Check [SinonJS](http://sinonjs.org)
