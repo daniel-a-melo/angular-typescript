@@ -14,13 +14,12 @@
         "noEmitHelpers": false
     },
     "filesGlob": [
-        "./app/bower_dependencies/**/ts/*.ts",
         "./src/**/*.ts",
         "./typings/**/*.ts",
         "./app-typings/**/*.ts"
     ],
     "files": [
-        "./app/bower_dependencies/angular-typescript/ts/at-angular.ts",
+        "./src/lib/angular-typescript/ts/at-angular.ts",
         "./src/test/controllers/SpeciesFormControllerTest.ts",
         "./src/test/filters/NotApplicableFilterTest.ts",
         "./src/test/testsBootstrap.ts",

@@ -31,7 +31,9 @@ project
 │   bower.json [Bower packages]
 ├───src [TypeScript source files]
 │   ├───test [Unit tests]
+│   ├───lib [Typescript source files provided by bower packages. They are copied from app/bower_dependencies by a gulp task]
 │   └───ts [Application code]
+|
 ├───app-typings [TypeScript definition files (.d.ts) written for the application]
 ├───typings [TypeScript definition files (d.ts) for third-party javascript libraries. Retrieved using tsd]
 ├───app [Resource files (html, css, images, fonts). Only folder that needs to be served. Includes typescript files from bower components though]

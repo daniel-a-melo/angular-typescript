@@ -9,3 +9,4 @@ app-bundle.js
 app-bundle.js.map
 **/.idea/workspace.xml
 **/.idea/tasks.xml
+src/lib
