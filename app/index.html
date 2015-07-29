@@ -1,7 +1,18 @@
  <!doctype html>
   <html>
   	<head>
-       <title>Star wars API frontend - ${version}</title>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=9">
+      <meta http-equiv="msthemecompatible" content="no">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Star wars API frontend - ${version}</title>
+
+       <!-- build:css vendor.css -->
+   		<link rel="stylesheet" href="bower_dependencies/bootstrap/css/bootstrap.min.css">
+   		<link rel="stylesheet" href="bower_dependencies/bootstrap/css/bootstrap-theme.min.css">
+   		<!-- endbuild -->
+
     </head>
     <body>
         <div data-ng-include src="'partials/menu.html'"></div>
@@ -11,6 +22,8 @@
         <div data-ng-include src="'partials/footer.html'"></div>
 
         <!-- build:js vendor.js -->
+        <script src="bower_dependencies/jquery/js/jquery.min.js"></script>
+        <script src="bower_dependencies/bootstrap/js/bootstrap.min.js"></script>
         <script src="bower_dependencies/angular/js/angular.min.js"></script>
         <script src="bower_dependencies/angular-route/js/angular-route.min.js"></script>
         <script src="bower_dependencies/lodash/js/lodash.min.js"></script>

@@ -24,6 +24,8 @@ module.exports = function(config) {
 
 
     files: [
+      'app/bower_dependencies/jquery/js/*.js',
+      'app/bower_dependencies/bootstrap/js/bootstrap.min.js',      
       'app/bower_dependencies/angular/js/*.js',
       'app/bower_dependencies/angular-route/js/*.js',
       'app/bower_dependencies/lodash/js/*.js',

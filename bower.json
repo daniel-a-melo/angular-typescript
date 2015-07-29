@@ -19,7 +19,8 @@
     "angular-route": "~1.4.3",
     "lodash": "~3.10.0",
     "qunit": "~1.18.0",
-    "angular-typescript": "~0.0.3"
+    "angular-typescript": "~0.0.3",
+    "bootstrap": "~3.3.5"
   },
   "overrides": {
     "angular": {
@@ -79,6 +80,43 @@
           "*.ts"
         ]
       }
+    },
+    "jquery": {
+      "main": [
+        "dist/jquery.min.js",
+        "dist/jquery.min.map"
+      ],
+      "normalize": {
+        "js": [
+          "*.min.js",
+          "*.min.map"
+        ]
+      }
+    },
+    "bootstrap": {
+      "main": [
+        "dist/js/*.min.js",
+        "dist/fonts/*.*",
+        "dist/css/*.min.css",
+        "dist/css/*.css.map"
+      ],
+      "normalize": {
+        "js": [
+          "*.min.js"
+        ],
+        "fonts": [
+          "*.woff",
+          "*.woff2",
+          "*.ttf",
+          "*.svg",
+          "*.eot"
+        ],
+        "css": [
+          "*.min.css",
+          "*.css.map"
+        ]
+      }
     }
+
   }
 }

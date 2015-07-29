@@ -43,7 +43,7 @@ gulp.task('tsd-install', function (done) {
 
 // Copies the files listed under main of each bower package into ${appPaths.runtimeFilesBase}/bower_dependencies
 // Check bower.json for overrides of main files
-gulp.task('normalize-bower-components', ['bower-install'], function(done) {
+gulp.task('normalize-bower-components', /* ['bower-install'],*/ function(done) {
     var bower = require('main-bower-files');
     var bowerNormalizer = require('gulp-bower-normalize');
     return gulp.src(bower(), {base: './bower_components'})
