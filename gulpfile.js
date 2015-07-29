@@ -89,14 +89,49 @@ gulp.task('test', ['transpile'],  function(done) {
   server.start();
 });
 
+//Source: http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
+function findCurrentIPAddress() {
+
+  var os = require('os');
+  var ifaces = os.networkInterfaces();
+  var address;
+
+  Object.keys(ifaces).forEach(function (ifname) {
+
+    ifaces[ifname].forEach(function (iface) {
+      if ('IPv4' !== iface.family || iface.internal !== false) {
+        // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+        return;
+      } else {
+        address = iface.address;
+      }
+    });
+  });
+
+  return address;
+
+}
+
 // Starts HTTP server with root dir being  ${appPaths.runtimeFilesBase}
 // gulp serve --dist will set root dir to ${appPaths.distributionPath}
+// gulp serve --external will accept external connections
 gulp.task('serve', function(done) {
 
     var rootDir = './' + (argv.dist ? appPaths.distributionPath : appPaths.runtimeFilesBase);
+    var hostAddress = '0.0.0.0';
+
+    var ipAddress;
+    if (argv.external) {
+      ipAddress = findCurrentIPAddress();
+      if (ipAddress !== undefined) {
+        hostAddress = ipAddress;
+      } else {
+        console.log('Unable to obtain IP address');
+      }
+    }
 
     var serverOptions = {
-      host: '0.0.0.0',
+      host: hostAddress,
       port: 8080,
       cors : true,
       root : rootDir,

@@ -14,6 +14,7 @@ Make sure node.js and git is installed
 * `gulp restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
 * `gulp serve` : Starts HTTP server with server root set to `app` directory
 * `gulp serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
+* `gulp serve --external` : Starts HTTP server and accepts external connections
 * `gulp transpile` : Transpiles all TypeScript files
 * `gulp test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
 * `gulp bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
