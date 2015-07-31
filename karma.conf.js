@@ -25,7 +25,7 @@ module.exports = function(config) {
 
     files: [
       'app/bower_dependencies/jquery/js/*.js',
-      'app/bower_dependencies/bootstrap/js/bootstrap.min.js',      
+      'app/bower_dependencies/bootstrap/js/bootstrap.min.js',
       'app/bower_dependencies/angular/js/*.js',
       'app/bower_dependencies/angular-route/js/*.js',
       'app/bower_dependencies/lodash/js/*.js',
@@ -38,6 +38,7 @@ module.exports = function(config) {
       'app/transpiled/ts/controllers/SpeciesFormController.js',
       'app/transpiled/ts/controllers/SpeciesListController.js',
       'app/transpiled/ts/directives/HighlightDirective.js',
+      'app/transpiled/ts/directives/PositiveIntegerValidator.js',
       'app/transpiled/ts/filters/NotApplicableFilter.js',
       'app/transpiled/ts/RouteConfig.js',
       'app/transpiled/ts/AppBootstrap.js',
