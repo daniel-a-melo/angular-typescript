@@ -43,7 +43,7 @@ gulp.task('tsd-install', function (done) {
 
 // Copies the files listed under main of each bower package into ${appPaths.runtimeFilesBase}/bower_dependencies
 // Check bower.json for overrides of main files
-gulp.task('normalize-bower-components', /* ['bower-install'],*/ function(done) {
+gulp.task('normalize-bower-components', ['bower-install'], function(done) {
     var bower = require('main-bower-files');
     var bowerNormalizer = require('gulp-bower-normalize');
     return gulp.src(bower(), {base: './bower_components'})
@@ -81,10 +81,16 @@ gulp.task('restore', ['fetch-all-dependencies'], doTranspilation);
 
 // Transpiles typescript and run unit tests using Karma
 gulp.task('test', ['transpile'],  function(done) {
-  server = new KarmaServer({
+  var karmaOptions = {
     configFile : __dirname + '/karma.conf.js',
     singleRun : true
-  }, done);
+  };
+
+  if (argv.browsers) {
+    karmaOptions.browsers = argv.browsers.split(',');
+  }
+
+  server = new KarmaServer(karmaOptions, done);
 
   server.start();
 });
@@ -119,6 +125,7 @@ gulp.task('serve', function(done) {
 
     var rootDir = './' + (argv.dist ? appPaths.distributionPath : appPaths.runtimeFilesBase);
     var hostAddress = '0.0.0.0';
+    var proxyAddress = undefined;
 
     var ipAddress;
     if (argv.external) {
@@ -130,12 +137,17 @@ gulp.task('serve', function(done) {
       }
     }
 
+    if (typeof(argv.proxy) === 'number') {
+      proxyAddress = 'http://localhost:' + argv.proxy.toString();
+    }
+
     var serverOptions = {
       host: hostAddress,
       port: 8080,
       cors : true,
       root : rootDir,
       cache : -1,
+      proxy : proxyAddress,
       logFn: requestLogger
     }
 
@@ -156,6 +168,10 @@ gulp.task('serve', function(done) {
       + ' on: '.yellow
       + (serverOptions.host + ':' + serverOptions.port).cyan);
 
+      if (serverOptions.proxy !== undefined) {
+        log('Unknown requests being proxied to '.yellow + (serverOptions.proxy).cyan);
+      }
+
 });
 
 // Concats all transpiled javascript files into  ${appPaths.distributionPath}/vendor.js (third-party libs) and
@@ -175,8 +191,13 @@ gulp.task('bundle-resources', function(done) {
 
 // Copy all resource files (images, css, fonts) from ${appPaths.runtimeFilesBase} to ${appPaths.distributionPath}
 gulp.task('copy-resource-files', function (done) {
-    return gulp.src(appPaths.resourcesFilesPath)
+    gulp.src(appPaths.resourcesFilesPath)
       .pipe(gulp.dest(appPaths.distributionPath));
+
+    gulp.src(appPaths.runtimeFilesBase + '/bower_dependencies/bootstrap/fonts/*.*')
+        .pipe(gulp.dest(appPaths.distributionPath + '/fonts'));
+
+    done();
 
 });
 

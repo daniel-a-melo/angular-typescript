@@ -15,13 +15,16 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.2",
-    "angular-route": "~1.4.3",
+    "angular": "~1.4.4",
+    "angular-route": "~1.4.4",
     "lodash": "~3.10.0",
     "qunit": "~1.18.0",
     "angular-typescript": "~0.0.3",
     "bootstrap": "~3.3.5"
   },
+  "resolutions": {
+    "angular": "~1.4.4"
+  },  
   "overrides": {
     "angular": {
       "main": [
