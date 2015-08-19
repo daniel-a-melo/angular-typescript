@@ -79,6 +79,19 @@ gulp.task('transpile', doTranspilation);
 // Fetch all dependencies (bower, definetly typed) and then transpiles typescript
 gulp.task('restore', ['fetch-all-dependencies'], doTranspilation);
 
+// Watches changes on typescript files and triggers transpilation
+
+//Note: Live reload only works if your HTML file has a <body> tag
+gulp.task('watch', function() {
+
+  gulp.watch([appPaths.sourcePath, appPaths.tsLibrariesSource], ['transpile']).on('change', reportChange);
+
+  function reportChange(event){
+    console.log('File ' + event.path + ' was ' + event.type + ', running transpilation');
+  }
+
+});
+
 // Transpiles typescript and run unit tests using Karma
 gulp.task('test', ['transpile'],  function(done) {
   var karmaOptions = {

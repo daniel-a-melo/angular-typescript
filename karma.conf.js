@@ -26,8 +26,8 @@ module.exports = function(config) {
     files: [
       'app/bower_dependencies/jquery/js/*.js',
       'app/bower_dependencies/bootstrap/js/bootstrap.min.js',
-      'app/bower_dependencies/angular/js/*.js',
-      'app/bower_dependencies/angular-route/js/*.js',
+      'app/bower_dependencies/angular/js/angular.min.js',
+      'app/bower_dependencies/angular-route/js/angular-route.min.js',
       'app/bower_dependencies/lodash/js/*.js',
       'app/transpiled/lib/**/*.js',
       'app/transpiled/ts/AppConfig.js',
@@ -61,7 +61,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'dots', 'junit', 'coverage'],
+    reporters: ['dots', 'junit', 'coverage'],
 
     junitReporter: {
        outputDir: './test-results', // results will be saved as $outputDir/$browserName.xml
