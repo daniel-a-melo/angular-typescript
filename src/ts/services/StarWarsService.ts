@@ -5,7 +5,7 @@ module SwapApp.Services {
   @at.service(SwapApp.mainModule, 'starWarsService')
   export class StarWarsService extends BaseService  {
 
-    private static BASE_URL : string = 'http://swapi.co/api';
+    private static BASE_URL : string = 'https://swapi.co/api';
 
     constructor(@at.inject('$q') $q: ng.IQService, @at.inject('$http') $http: ng.IHttpService) {
       super($q, $http);
