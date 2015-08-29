@@ -1,20 +1,20 @@
-module SwapApp.Services {
+import {BaseService} from './BaseService';
+import {ISpeciesResult} from '../domain/SpeciesResult';
+import {mainModule} from '../AppConfig';
 
-  import SpeciesResult = SwapApp.Domain.ISpeciesResult;
+export class StarWarsService extends BaseService  {
 
-  @at.service(SwapApp.mainModule, 'starWarsService')
-  export class StarWarsService extends BaseService  {
+  static $inject = ['$q', '$http'];
+  private static BASE_URL : string = 'https://swapi.co/api';
 
-    private static BASE_URL : string = 'https://swapi.co/api';
+  constructor($q: ng.IQService, $http: ng.IHttpService) {
+    super($q, $http);
+   }
 
-    constructor(@at.inject('$q') $q: ng.IQService, @at.inject('$http') $http: ng.IHttpService) {
-      super($q, $http);
-     }
-
-    readSpecies() : ng.IPromise<SpeciesResult> {
-      return this.getServiceData<SpeciesResult>(StarWarsService.BASE_URL + '/species/');
-    }
-
+  readSpecies() : ng.IPromise<ISpeciesResult> {
+    return this.getServiceData<ISpeciesResult>(StarWarsService.BASE_URL + '/species/');
   }
 
 }
+
+angular.module(mainModule).service('starWarsService', StarWarsService);

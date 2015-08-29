@@ -1,4 +1,5 @@
 node_modules
+jspm_packages
 bower_components
 bower_dependencies
 transpiled
@@ -7,6 +8,10 @@ test-results
 dist
 app-bundle.js
 app-bundle.js.map
+build.js
+build.js.map
+build.css
+build.css.map
 **/.idea/workspace.xml
 **/.idea/tasks.xml
 src/lib

@@ -9,8 +9,9 @@
       <title>Star wars API frontend - ${version}</title>
 
        <!-- build:css vendor.css -->
-   		<link rel="stylesheet" href="bower_dependencies/bootstrap/css/bootstrap.min.css">
-   		<link rel="stylesheet" href="bower_dependencies/bootstrap/css/bootstrap-theme.min.css">
+   		<!--link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap.min.css"-->
+   		<!--link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap-theme.min.css"-->
+      <!--link rel="stylesheet" href="build.css"-->
    		<!-- endbuild -->
 
     </head>
@@ -21,28 +22,10 @@
 
         <div data-ng-include src="'partials/footer.html'"></div>
 
-        <!-- build:js vendor.js -->
-        <script src="bower_dependencies/jquery/js/jquery.min.js"></script>
-        <script src="bower_dependencies/bootstrap/js/bootstrap.min.js"></script>
-        <script src="bower_dependencies/angular/js/angular.min.js"></script>
-        <script src="bower_dependencies/angular-route/js/angular-route.min.js"></script>
-        <script src="bower_dependencies/lodash/js/lodash.min.js"></script>
-        <script src="transpiled/lib/angular-typescript/ts/at-angular.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js app.js -->
-        <script src="transpiled/ts/AppConfig.js"></script>
-        <script src="transpiled/ts/decorators/LogDecorator.js"></script>
-        <script src="transpiled/ts/decorators/at-angular-ext.js"></script>
-        <script src="transpiled/ts/services/BaseService.js"></script>
-        <script src="transpiled/ts/services/StarWarsService.js"></script>
-        <script src="transpiled/ts/controllers/SpeciesFormController.js"></script>
-        <script src="transpiled/ts/controllers/SpeciesListController.js"></script>
-        <script src="transpiled/ts/directives/HighlightDirective.js"></script>
-        <script src="transpiled/ts/directives/PositiveIntegerValidator.js"></script>
-        <script src="transpiled/ts/filters/NotApplicableFilter.js"></script>
-        <script src="transpiled/ts/RouteConfig.js"></script>
-        <script src="transpiled/ts/AppBootstrap.js"></script>
-        <!-- endbuild -->
+        <script src="jspm_packages/system.js"></script>
+        <script src="config.js"></script>
+        <script>
+          System.import('transpiled/ts/AppInit');
+        </script>
     </body>
   </html>

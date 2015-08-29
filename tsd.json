@@ -19,6 +19,9 @@
     },
     "lodash/lodash.d.ts": {
       "commit": "8f51d25ad3523cd01f2d92e343247852f6b70dff"
+    },
+    "systemjs/systemjs.d.ts": {
+      "commit": "67605e10f6eb01c9d4a0d13719d804d6dea9e1cb"
     }
   }
 }

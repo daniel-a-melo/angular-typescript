@@ -9,6 +9,10 @@ Make sure node.js and git is installed
 * Run `gulp serve`. A HTTP server will be started on port 8080 (or the next port available)
 * Navigate to `http://localhost<port>`
 
+`jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css --inject`
+`jspm unbundle`
+
+
 ### Main gulp tasks
 
 * `gulp restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
@@ -75,8 +79,7 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 ### TODO
 
-- [ ] Add support for modules (JSPM)
+- [ ] Check bootstrap fonts bundling
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
-- [ ] Check [SinonJS](http://sinonjs.org)
 - [ ] Add shell scripts to Gulp, Bower and TSD

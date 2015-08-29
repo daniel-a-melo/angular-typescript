@@ -1,26 +1,27 @@
-module SwapApp.Controllers {
+import {ISpecies} from '../domain/SpeciesResult';
+import {log} from '../decorators/LogDecorator';
+import {mainModule} from '../AppConfig';
 
-  import ISpecies = SwapApp.Domain.ISpecies;
-  import log = SwapApp.Decorators.log;
 
-  @at.controller(SwapApp.mainModule, 'speciesFormController')
-  export class SpeciesFormController {
+//@at.controller(SwapApp.mainModule, 'speciesFormController')
+export class SpeciesFormController {
 
-    species : ISpecies;
-    message : string = '';
+  static $inject = ['$scope'];
+  species : ISpecies;
+  message : string = '';
 
-    constructor(@at.inject('$scope') $scope : ng.IScope) {}
+  constructor($scope : ng.IScope) {}
 
-    @log
-    save() : void {
+  @log
+  save() : void {
 
-      if (this.species.name === 'error') {
-        throw new Error('Erronenous species name entered');
-      }
-
-      this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
+    if (this.species.name === 'error') {
+      throw new Error('Erronenous species name entered');
     }
 
+    this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
   }
 
 }
+
+angular.module(mainModule).controller('speciesFormController', SpeciesFormController);

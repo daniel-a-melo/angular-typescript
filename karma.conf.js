@@ -10,9 +10,10 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['qunit'],
+    frameworks: ['jspm','qunit'],
 
     plugins: [
+      'karma-jspm',
       'karma-phantomjs-launcher',
       'karma-firefox-launcher',
       'karma-qunit',
@@ -20,31 +21,18 @@ module.exports = function(config) {
       'karma-coverage'
     ],
 
-    // list of files / patterns to load in the browser
+    jspm: {
+        // Edit this to your needs
+        loadFiles: ['app/transpiled/test/**/*Test.js'],
+        serveFiles: ['app/transpiled/**/*.+(js|html|css|json)']
+    },
 
 
-    files: [
-      'app/bower_dependencies/jquery/js/*.js',
-      'app/bower_dependencies/bootstrap/js/bootstrap.min.js',
-      'app/bower_dependencies/angular/js/angular.min.js',
-      'app/bower_dependencies/angular-route/js/angular-route.min.js',
-      'app/bower_dependencies/lodash/js/*.js',
-      'app/transpiled/lib/**/*.js',
-      'app/transpiled/ts/AppConfig.js',
-      'app/transpiled/ts/decorators/LogDecorator.js',
-      'app/transpiled/ts/decorators/at-angular-ext.js',
-      'app/transpiled/ts/services/BaseService.js',
-      'app/transpiled/ts/services/StarWarsService.js',
-      'app/transpiled/ts/controllers/SpeciesFormController.js',
-      'app/transpiled/ts/controllers/SpeciesListController.js',
-      'app/transpiled/ts/directives/HighlightDirective.js',
-      'app/transpiled/ts/directives/PositiveIntegerValidator.js',
-      'app/transpiled/ts/filters/NotApplicableFilter.js',
-      'app/transpiled/ts/RouteConfig.js',
-      'app/transpiled/ts/AppBootstrap.js',
-      'app/transpiled/test/**/*Test.js',
-    ],
-
+    proxies: {
+      '/app/transpiled/test': '/base/app/transpiled/test',
+      '/app/transpiled/': '/base/app/transpiled',
+      '/jspm_packages/': '/base/app/jspm_packages/'
+    },
 
     // list of files to exclude
     exclude: [

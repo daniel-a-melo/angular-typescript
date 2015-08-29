@@ -6,9 +6,7 @@ var KarmaServer = require('karma').Server;
 var httpServer = require('http-server');
 var useref = require('gulp-useref');
 var argv = require('yargs').argv;
-var zip = require('gulp-zip');
 var replace = require('gulp-replace');
-var bower = require('bower');
 var tsd = require('gulp-tsd');
 
 
@@ -23,16 +21,6 @@ var appPaths = {
   get resourcesFilesPath() { return [this.runtimeFilesBase + '/**/*.png', this.runtimeFilesBase + '/**/*.ico'] } //GLOB for resource files that will be processed during bundling
 };
 
-// Invokes bower install
-gulp.task('bower-install', function (done) {
-
-  bower.commands.install([], {save: true}, {})
-    .on('end', function(installed){
-      done();
-    });
-
-});
-
 // Invokes tsd reinstall
 gulp.task('tsd-install', function (done) {
     tsd({
@@ -41,24 +29,8 @@ gulp.task('tsd-install', function (done) {
     }, done);
 });
 
-// Copies the files listed under main of each bower package into ${appPaths.runtimeFilesBase}/bower_dependencies
-// Check bower.json for overrides of main files
-gulp.task('normalize-bower-components', ['bower-install'], function(done) {
-    var bower = require('main-bower-files');
-    var bowerNormalizer = require('gulp-bower-normalize');
-    return gulp.src(bower(), {base: './bower_components'})
-        .pipe(bowerNormalizer({bowerJson: './bower.json'}))
-        .pipe(gulp.dest('./' + appPaths.runtimeFilesBase + '/bower_dependencies/'))
-});
-
-// Copies the typescript files distributed by bower packages to the
-gulp.task('copy-bower-ts-sources', ['normalize-bower-components'],  function(done) {
-  return gulp.src(['./app/bower_dependencies/**/ts/*.ts'])
-          .pipe(gulp.dest('./' + appPaths.tsLibrariesSource));
-});
-
 // Fetch all bower dependencies, copies its main files into ${appPaths.runtimeFilesBase}/bower_dependencies and fetches all .d.ts files
-gulp.task('fetch-all-dependencies', ['copy-bower-ts-sources', 'tsd-install']);
+gulp.task('fetch-all-dependencies', ['tsd-install']);
 
 
 function doTranspilation(done) {
@@ -187,56 +159,10 @@ gulp.task('serve', function(done) {
 
 });
 
-// Concats all transpiled javascript files into  ${appPaths.distributionPath}/vendor.js (third-party libs) and
-// ${appPaths.distributionPath}/app.js (transpiled application files)
-gulp.task('bundle-resources', function(done) {
-
-  var assets = useref.assets();
-
-  return gulp.src(appPaths.htmlFilesPath)
-      .pipe(assets)
-      .pipe(assets.restore())
-      .pipe(useref())
-      .pipe(gulp.dest(appPaths.distributionPath));
-
-
-});
-
-// Copy all resource files (images, css, fonts) from ${appPaths.runtimeFilesBase} to ${appPaths.distributionPath}
-gulp.task('copy-resource-files', function (done) {
-    gulp.src(appPaths.resourcesFilesPath)
-      .pipe(gulp.dest(appPaths.distributionPath));
-
-    gulp.src(appPaths.runtimeFilesBase + '/bower_dependencies/bootstrap/fonts/*.*')
-        .pipe(gulp.dest(appPaths.distributionPath + '/fonts'));
-
-    done();
-
-});
-
 // Replaces the tag ${version} on ${appPaths.distributionPath}/index.html to the version configured on package.json
 gulp.task('replace-version', ['bundle-resources'], function (done) {
   var packageFile = require('./package.json');
   return gulp.src(appPaths.distributionPath + '/index.html')
         .pipe(replace('${version}', packageFile.version))
         .pipe(gulp.dest(appPaths.distributionPath));
-});
-
-
-// Generates bundled version for distribuition on ${appPaths.distributionPath}
-// See tasks 'bundle-resource' and 'replace-version'
-gulp.task('bundle', ['copy-resource-files', 'replace-version'], function() {
-
-});
-
-// Generates a ZIP files with distribution bundled version
-// See task 'bundle'
-gulp.task('package', function (done) {
-
-    var packageFile = require('./package.json');
-
-    return gulp.src(appPaths.distributionPath + '/*')
-        .pipe(zip(packageFile.name + '-' + packageFile.version + '.zip'))
-        .pipe(gulp.dest(appPaths.distributionPath));
-
 });
