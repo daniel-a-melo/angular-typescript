@@ -22,6 +22,7 @@
         "./src/lib/angular-typescript/ts/at-angular.ts",
         "./src/test/controllers/SpeciesFormControllerTest.ts",
         "./src/test/filters/NotApplicableFilterTest.ts",
+        "./src/test/services/StarWarsServiceTest.ts",
         "./src/test/testsBootstrap.ts",
         "./src/ts/AppBootstrap.ts",
         "./src/ts/AppConfig.ts",

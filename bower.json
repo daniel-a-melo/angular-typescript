@@ -20,11 +20,12 @@
     "lodash": "~3.10.0",
     "qunit": "~1.18.0",
     "angular-typescript": "~0.0.3",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "angular-mocks": "~1.4.5"
   },
   "resolutions": {
     "angular": "~1.4.4"
-  },  
+  },
   "overrides": {
     "angular": {
       "main": [
@@ -49,6 +50,16 @@
         "js": [
           "*.js",
           "*.map"
+        ]
+      }
+    },
+    "angular-mocks" : {
+      "main" : [
+        "angular-mocks.js"
+      ],
+      "normalize" : {
+        "js" : [
+          "*.js"
         ]
       }
     },
@@ -120,6 +131,5 @@
         ]
       }
     }
-
   }
 }

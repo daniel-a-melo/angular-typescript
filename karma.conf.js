@@ -27,6 +27,7 @@ module.exports = function(config) {
       'app/bower_dependencies/jquery/js/*.js',
       'app/bower_dependencies/bootstrap/js/bootstrap.min.js',
       'app/bower_dependencies/angular/js/angular.min.js',
+      'app/bower_dependencies/angular-mocks/js/angular-mocks.js',
       'app/bower_dependencies/angular-route/js/angular-route.min.js',
       'app/bower_dependencies/lodash/js/*.js',
       'app/transpiled/lib/**/*.js',
