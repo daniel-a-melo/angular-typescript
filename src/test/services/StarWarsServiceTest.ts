@@ -8,11 +8,13 @@ module SwapApp.Tests.Services {
 
   var $injector : ng.auto.IInjectorService;
   var $httpBackend : angular.IHttpBackendService;
+  var $q : ng.IQService;
 
   QUnit.module('StarWarsService tests', {
     setup : () => {
       $injector = angular.injector([SwapApp.mainModule, 'ng', 'ngMock']);
       $httpBackend = $injector.get('$httpBackend');
+      $q = $injector.get('$q');
     },
 
     teardown : () => {
@@ -44,7 +46,10 @@ module SwapApp.Tests.Services {
 
     $httpBackend.expectGET('https://swapi.co/api/species/').respond(mockResponse);
 
-    var service : StarWarsService = $injector.get('starWarsService');
+
+    //var service : StarWarsService = $injector.get('starWarsService');
+    var service = new StarWarsService($q, $injector.get('$http'));
+
     var done = assert.async();
 
     service.readSpecies().then((data) => {
