@@ -8,6 +8,7 @@ var useref = require('gulp-useref');
 var argv = require('yargs').argv;
 var replace = require('gulp-replace');
 var tsd = require('gulp-tsd');
+var jspm = require('jspm');
 
 
 var appPaths = {
@@ -165,4 +166,14 @@ gulp.task('replace-version', ['bundle-resources'], function (done) {
   return gulp.src(appPaths.distributionPath + '/index.html')
         .pipe(replace('${version}', packageFile.version))
         .pipe(gulp.dest(appPaths.distributionPath));
+});
+
+
+gulp.task('bundle', function (done) {
+
+  //jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css --inject
+
+  //jspm.setPackagePath('.');
+  return jspm.bundle('transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css', 'build.js', { inject: true });
+
 });

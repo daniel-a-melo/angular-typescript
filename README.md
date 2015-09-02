@@ -12,6 +12,11 @@ Make sure node.js and git is installed
 `jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css --inject`
 `jspm unbundle`
 
+http://martinmicunda.com/2015/02/09/how-to-start-writing-apps-with-es6-angular-1x-and-jspm/
+
+https://github.com/systemjs/plugin-css/issues/61
+https://github.com/systemjs/builder/issues/166
+
 
 ### Main gulp tasks
 
