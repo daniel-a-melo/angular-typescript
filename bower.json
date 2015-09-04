@@ -21,7 +21,8 @@
     "qunit": "~1.18.0",
     "angular-typescript": "~0.0.3",
     "bootstrap": "~3.3.5",
-    "angular-mocks": "~1.4.5"
+    "angular-mocks": "~1.4.5",
+    "sinon-js": "~1.15.4"
   },
   "resolutions": {
     "angular": "~1.4.4"
@@ -53,12 +54,12 @@
         ]
       }
     },
-    "angular-mocks" : {
-      "main" : [
+    "angular-mocks": {
+      "main": [
         "angular-mocks.js"
       ],
-      "normalize" : {
-        "js" : [
+      "normalize": {
+        "js": [
           "*.js"
         ]
       }
@@ -128,6 +129,16 @@
         "css": [
           "*.min.css",
           "*.css.map"
+        ]
+      }
+    },
+    "sinon-js" : {
+      "main" : [
+        "sinon.js"
+      ],
+      "normalize" : {
+        "js" : [
+          "*.js"
         ]
       }
     }

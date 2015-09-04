@@ -3,7 +3,7 @@ module SwapApp.Tests.Controllers {
   import SpeciesFormController = SwapApp.Controllers.SpeciesFormController;
   import ISpecies = SwapApp.Domain.ISpecies;
 
-  QUnit.module('Controller tests');
+  QUnit.module('SpeciesFormController');
 
   QUnit.test('Test save sucessfully', (assert : QUnitAssert) => {
 

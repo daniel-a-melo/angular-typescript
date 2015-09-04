@@ -75,8 +75,7 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 ### TODO
 
-- [ ] Add support for modules (JSPM)
+- [ ] Migrate to new-router (https://angular.github.io/router/getting-started)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
-- [ ] Check [SinonJS](http://sinonjs.org)
 - [ ] Add shell scripts to Gulp, Bower and TSD

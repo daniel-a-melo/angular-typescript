@@ -10,7 +10,7 @@ module SwapApp.Tests.Services {
   var $httpBackend : angular.IHttpBackendService;
   var $q : ng.IQService;
 
-  QUnit.module('StarWarsService tests', {
+  QUnit.module('StarWarsService', {
     setup : () => {
       $injector = angular.injector([SwapApp.mainModule, 'ng', 'ngMock']);
       $httpBackend = $injector.get('$httpBackend');

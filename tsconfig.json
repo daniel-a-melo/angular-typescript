@@ -21,6 +21,7 @@
     "files": [
         "./src/lib/angular-typescript/ts/at-angular.ts",
         "./src/test/controllers/SpeciesFormControllerTest.ts",
+        "./src/test/controllers/SpeciesListControllerTest.ts",
         "./src/test/filters/NotApplicableFilterTest.ts",
         "./src/test/services/StarWarsServiceTest.ts",
         "./src/test/testsBootstrap.ts",
@@ -43,6 +44,7 @@
         "./typings/jquery/jquery.d.ts",
         "./typings/lodash/lodash.d.ts",
         "./typings/qunit/qunit.d.ts",
+        "./typings/sinon/sinon.d.ts",
         "./typings/tsd.d.ts",
         "./app-typings/lodash-update.d.ts",
         "./app-typings/qunit.d.ts"

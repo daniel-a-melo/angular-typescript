@@ -30,6 +30,7 @@ module.exports = function(config) {
       'app/bower_dependencies/angular-mocks/js/angular-mocks.js',
       'app/bower_dependencies/angular-route/js/angular-route.min.js',
       'app/bower_dependencies/lodash/js/*.js',
+      'app/bower_dependencies/sinon-js/js/*.js',
       'app/transpiled/lib/**/*.js',
       'app/transpiled/ts/AppConfig.js',
       'app/transpiled/ts/decorators/LogDecorator.js',
