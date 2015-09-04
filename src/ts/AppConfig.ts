@@ -6,7 +6,7 @@ module SwapApp {
 
   export var mainModule : string = 'app';
 
-  angular.module(mainModule, ['ngRoute']); //Creates the main module
+  angular.module(mainModule, ['ngRoute', 'angular-loading-bar']); //Creates the main module
   angular.module(mainModule).constant('_', _); //Adding lodash globas as angular constant to facilitate unit testing
 
 }

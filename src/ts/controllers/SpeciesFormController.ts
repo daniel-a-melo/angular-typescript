@@ -14,11 +14,16 @@ module SwapApp.Controllers {
     @log
     save() : void {
 
-      if (this.species.name === 'error') {
+      if (this.species && this.species.name === 'error') {
         throw new Error('Erronenous species name entered');
       }
 
-      this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
+      if (this.species) {
+        this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
+      } else {
+        this.message = 'Empty species huh? Fine because this API is read-only! :)';        
+      }
+
     }
 
   }

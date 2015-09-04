@@ -11,15 +11,19 @@
        <!-- build:css vendor.css -->
    		<link rel="stylesheet" href="bower_dependencies/bootstrap/css/bootstrap.min.css">
    		<link rel="stylesheet" href="bower_dependencies/bootstrap/css/bootstrap-theme.min.css">
+  		<link rel="stylesheet" href="bower_dependencies/angular-loading-bar/css/loading-bar.min.css">
    		<!-- endbuild -->
 
     </head>
-    <body>
-        <div data-ng-include src="'partials/menu.html'"></div>
+    <body role="document">
+        <div class="container theme-showcase" role="main">
+          <div data-ng-include src="'partials/menu.html'"></div>
 
-        <div data-ng-view></div>
+          <div data-ng-view></div>
 
-        <div data-ng-include src="'partials/footer.html'"></div>
+          <div data-ng-include src="'partials/footer.html'"></div>
+        </div>
+
 
         <!-- build:js vendor.js -->
         <script src="bower_dependencies/jquery/js/jquery.min.js"></script>
@@ -28,6 +32,7 @@
         <script src="bower_dependencies/angular-route/js/angular-route.min.js"></script>
         <script src="bower_dependencies/lodash/js/lodash.min.js"></script>
         <script src="transpiled/lib/angular-typescript/ts/at-angular.js"></script>
+        <script src="bower_dependencies/angular-loading-bar/js/loading-bar.min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js app.js -->
@@ -38,6 +43,7 @@
         <script src="transpiled/ts/services/StarWarsService.js"></script>
         <script src="transpiled/ts/controllers/SpeciesFormController.js"></script>
         <script src="transpiled/ts/controllers/SpeciesListController.js"></script>
+        <script src="transpiled/ts/controllers/MenuController.js"></script>
         <script src="transpiled/ts/directives/HighlightDirective.js"></script>
         <script src="transpiled/ts/directives/PositiveIntegerValidator.js"></script>
         <script src="transpiled/ts/filters/NotApplicableFilter.js"></script>

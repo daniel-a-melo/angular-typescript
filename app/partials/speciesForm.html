@@ -1,12 +1,23 @@
-<div>
-    <div id="messages" data-ng-hide="ctrl.message == ''" style="margin:0 20px 20px 0;">{{ctrl.message}}</div>
-    <div>
-        <form name="speciesForm" data-ng-submit="ctrl.save()" novalidate>
-            <label for="name">Name</label><br />
-            <input type="text" id="name" name="name" data-ng-model="ctrl.species.name" required><br />
-            <label for="name">Hair colors</label><br />
-            <input type="text" id="hairColors" name="hairColors" data-ng-model="ctrl.species.hair_colors" required><p />
-            <button type="submit">Save</button>
-        </form>
+<div class="row">
+  <ol style="visibility:hidden;"></ol> <!-- Just vertical space, ugly I know -->
+  <div id="messages" data-ng-hide="ctrl.message == ''" class="alert alert-info" role="alert">{{ctrl.message}}</div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div>
+          <form name="speciesForm" data-ng-submit="ctrl.save()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" class="form-control" data-ng-model="ctrl.species.name">
+            </div>
+            <div class="form-group">
+              <label for="name">Hair colors</label>
+              <input type="text" id="hairColors" name="hairColors" class="form-control" data-ng-model="ctrl.species.hair_colors"><p />
+            </div>
+            <button type="submit" class="btn btn-default">Save</button>
+          </form>
+      </div>
     </div>
 </div>

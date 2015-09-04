@@ -28,4 +28,14 @@ module SwapApp.Tests.Controllers {
 
   });
 
+  QUnit.test('Test save with empty form', (assert : QUnitAssert) => {
+
+    let ctrl = new SpeciesFormController(<ng.IScope>{});
+    ctrl.species = undefined;
+
+    ctrl.save();
+    assert.equal(ctrl.message, 'Empty species huh? Fine because this API is read-only! :)');
+
+  });
+
 }

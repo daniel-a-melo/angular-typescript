@@ -22,7 +22,8 @@
     "angular-typescript": "~0.0.3",
     "bootstrap": "~3.3.5",
     "angular-mocks": "~1.4.5",
-    "sinon-js": "~1.15.4"
+    "sinon-js": "~1.15.4",
+    "angular-loading-bar": "~0.8.0"
   },
   "resolutions": {
     "angular": "~1.4.4"
@@ -132,13 +133,27 @@
         ]
       }
     },
-    "sinon-js" : {
-      "main" : [
+    "sinon-js": {
+      "main": [
         "sinon.js"
+      ],
+      "normalize": {
+        "js": [
+          "*.js"
+        ]
+      }
+    },
+    "angular-loading-bar" : {
+      "main" : [
+        "build/loading-bar.min.js",
+        "build/loading-bar.min.css"
       ],
       "normalize" : {
         "js" : [
-          "*.js"
+          "*.min.js"
+        ],
+        "css" : [
+          "*.min.css"
         ]
       }
     }

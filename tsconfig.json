@@ -28,6 +28,7 @@
         "./src/ts/AppBootstrap.ts",
         "./src/ts/AppConfig.ts",
         "./src/ts/RouteConfig.ts",
+        "./src/ts/controllers/MenuController.ts",
         "./src/ts/controllers/SpeciesFormController.ts",
         "./src/ts/controllers/SpeciesListController.ts",
         "./src/ts/decorators/LogDecorator.ts",
