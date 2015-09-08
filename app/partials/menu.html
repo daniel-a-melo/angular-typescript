@@ -1,4 +1,4 @@
 <ul class="nav nav-tabs" role="tablist" data-ng-controller="menuController as menu">
-  <li role="presentation" class="active"><a href="#/species">List species</a></li>
-  <li role="presentation"><a href="#/species/add">Add species</a></li>
+  <li role="presentation" data-ng-class="{active: menu.isActiveTab('/species')}"><a href="#/species">List species</a></li>
+  <li role="presentation" data-ng-class="{active: menu.isActiveTab('/species/add')}"><a href="#/species/add">Add species</a></li>
 </ul>

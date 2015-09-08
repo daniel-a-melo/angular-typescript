@@ -20,6 +20,7 @@
     ],
     "files": [
         "./src/lib/angular-typescript/ts/at-angular.ts",
+        "./src/test/controllers/MenuControllerTest.ts",
         "./src/test/controllers/SpeciesFormControllerTest.ts",
         "./src/test/controllers/SpeciesListControllerTest.ts",
         "./src/test/filters/NotApplicableFilterTest.ts",
