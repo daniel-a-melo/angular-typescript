@@ -4,24 +4,44 @@ module at {
 
     'use strict';
 
-    export function filter(moduleName: string, filterName: string): at.IClassAnnotationDecorator {
-      return (target: any): void => {
-          angular.module(moduleName).filter(filterName, target.filter);
+    interface ngFilter {
+      (... args : any[]) : (input : string) => string;
+    }
+
+    interface ngDirectiveFactory {
+      create() : Function;
+    }
+
+    export function filter(moduleName: string, filterName: string, dependencies? : string[]) {
+      return (target: Object, propertyKey : string, descriptor : TypedPropertyDescriptor<ngFilter>) => {
+        if (!dependencies) {
+          angular.module(moduleName).filter(filterName, descriptor.value);
+        } else {
+          let configList: any[] = dependencies.slice();
+          configList.push(descriptor.value);
+          angular.module(moduleName).filter(filterName, configList);
+        }
       };
     }
 
-    export function directiveFactory(moduleName: string, directiveName: string) : at.IClassAnnotationDecorator  {
-        return (target: any): void => {
-          angular.module(moduleName).directive(directiveName, target.create());
+    export function config(moduleName: string, dependencies : string[])  {
+      return (target: Object, propertyKey : string, descriptor : TypedPropertyDescriptor<any>) => {
+        if (!dependencies) {
+          angular.module(moduleName).config(descriptor.value);
+        } else {
+          let configList: any[] = dependencies.slice();
+          configList.push(descriptor.value);
+          angular.module(moduleName).config(configList);
+        }
+      };
+    }
+
+    export function directiveFactory(moduleName: string, directiveName: string)  {
+        return (target: ngDirectiveFactory): void => {
+          angular.module(moduleName).directive(directiveName, <any>target.create());
         };
     }
 
-    export function config(moduleName: string, dependencies : string[]) : at.IClassAnnotationDecorator  {
-      return (target: any): void => {
-        var configList: any[] = dependencies.slice();
-        configList.push(target.config);
-        angular.module(moduleName).config(configList);
-      };
-    }
+
 
 }

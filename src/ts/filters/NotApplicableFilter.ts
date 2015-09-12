@@ -1,8 +1,8 @@
 module SwapApp.Filters {
 
-  @at.filter(SwapApp.mainModule, 'naFilter')
   export class NotApplicableFilter {
 
+    @at.filter(SwapApp.mainModule, 'naFilter')
     static filter() {
       return function (input : string) {
         if (input == 'n/a') {
@@ -12,6 +12,7 @@ module SwapApp.Filters {
         }
       }
     }
+
   }
 
 }

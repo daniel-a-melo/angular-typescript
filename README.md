@@ -5,20 +5,20 @@
 Make sure node.js and git is installed
 
 * Run `npm install`
-* Run `gulp restore`
-* Run `gulp serve`. A HTTP server will be started on port 8080 (or the next port available)
+* Run `./gulp.sh restore`
+* Run `./gulp.sh serve`. A HTTP server will be started on port 8080 (or the next port available)
 * Navigate to `http://localhost<port>`
 
 ### Main gulp tasks
 
-* `gulp restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
-* `gulp serve` : Starts HTTP server with server root set to `app` directory
-* `gulp serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
-* `gulp serve --external` : Starts HTTP server and accepts external connections
-* `gulp transpile` : Transpiles all TypeScript files
-* `gulp test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
-* `gulp bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
-* `gulp package` : Creates a ZIP files containing the bundled version
+* `./gulp.sh restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
+* `./gulp.sh serve` : Starts HTTP server with server root set to `app` directory
+* `./gulp.sh serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
+* `./gulp.sh serve --external` : Starts HTTP server and accepts external connections
+* `./gulp.sh transpile` : Transpiles all TypeScript files
+* `./gulp.sh test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
+* `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
+* `./gulp.sh package` : Creates a ZIP files containing the bundled version
 
 ### Directory structure
 
@@ -30,6 +30,8 @@ project
 │   tsconfig.json [TypeScript compiler configuration]
 │   tsd.json [Definetly typed files]
 │   bower.json [Bower packages]
+│   bower.sh / gulp.sh / tsd.sh (shell scripts for Bower, Gulp and TSD)
+│    
 ├───src [TypeScript source files]
 │   ├───test [Unit tests]
 │   ├───lib [Typescript source files provided by bower packages. They are copied from app/bower_dependencies by a gulp task]
@@ -48,10 +50,10 @@ project
 
 ### Unit tests
 
-Unit tests can be executed via command line using `gulp test`. To run Karma without gulp use the following commands:
+Unit tests can be executed via command line using `./gulp.sh test`. To run Karma without gulp use the following commands:
 
 `./node_modules/karma/bin/karma start karma.conf.js --single-run`
-`./node_modules/karma/bin/karma start karma.conf.js --single-run --log-level debug` (with debug)
+`./node_modules/karma/bin/karma start karma.conf.js --single-run --log-level debug` (with debug info)
 
 It is possible to use [QUnit](https://qunitjs.com/) test runner using the following URL:
 
@@ -75,9 +77,6 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 ### TODO
 
-- [ ] Add shell scripts to Gulp, Bower and TSD
-- [ ] Retest gulp dist task
-- [ ] Update README.md
+- [ ] Add Windows shell scripts to Gulp, Bower and TSD
 - [ ] Migrate to new-router (https://angular.github.io/router/getting-started)
-- [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
-- [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
+- [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212) and [remap-instanbul](https://www.npmjs.com/package/remap-istanbul)

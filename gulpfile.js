@@ -10,6 +10,7 @@ var zip = require('gulp-zip');
 var replace = require('gulp-replace');
 var bower = require('bower');
 var tsd = require('gulp-tsd');
+var del = require('del');
 
 
 var appPaths = {
@@ -20,7 +21,11 @@ var appPaths = {
   get sourcePath() { return [this.baseSource +  '/**/*.ts']}, //GLOB for TypeScript sources
   distributionPath : 'dist', //Directory for bundled verion of application
   get htmlFilesPath() { return [this.runtimeFilesBase + '/**/*.html'] }, //GLOB for html files that will be processed during bundling
-  get resourcesFilesPath() { return [this.runtimeFilesBase + '/**/*.png', this.runtimeFilesBase + '/**/*.ico'] } //GLOB for resource files that will be processed during bundling
+  get resourcesFilesPath() { return [
+      this.runtimeFilesBase + '/**/*.png',
+      this.runtimeFilesBase + '/**/*.ico',
+      this.runtimeFilesBase + '/**/*.css'
+  ]} //GLOB for resource files that will be processed during bundling
 };
 
 // Invokes bower install
@@ -62,6 +67,9 @@ gulp.task('fetch-all-dependencies', ['copy-bower-ts-sources', 'tsd-install']);
 
 
 function doTranspilation(done) {
+
+  del.sync(appPaths.output);
+
   var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript'), inlineSourceMap : false});
   var tsResult = gulp.src(appPaths.sourcePath)
     .pipe(sourcemaps.init())
@@ -191,6 +199,8 @@ gulp.task('serve', function(done) {
 // ${appPaths.distributionPath}/app.js (transpiled application files)
 gulp.task('bundle-resources', function(done) {
 
+  del.sync(appPaths.distributionPath);
+
   var assets = useref.assets();
 
   return gulp.src(appPaths.htmlFilesPath)
@@ -239,4 +249,14 @@ gulp.task('package', function (done) {
         .pipe(zip(packageFile.name + '-' + packageFile.version + '.zip'))
         .pipe(gulp.dest(appPaths.distributionPath));
 
+});
+
+//WIP
+gulp.task('coverage', function (done) {
+
+    var remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
+
+    return gulp.src('test-results/**/coverage-final.json')
+        .pipe(remapIstanbul())
+        .pipe(gulp.dest('test-results'));
 });
