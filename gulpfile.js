@@ -76,7 +76,7 @@ function doTranspilation(done) {
     .pipe(ts(tsProject));
 
   return tsResult.js
-    .pipe(sourcemaps.write({includeContent: true, debug: true}))
+    .pipe(sourcemaps.write({includeContent: true, debug: true, sourceRoot : '/src/'}))
     .pipe(gulp.dest(appPaths.output));
 }
 
@@ -114,6 +114,19 @@ gulp.task('test', ['transpile'],  function(done) {
   server = new KarmaServer(karmaOptions, done);
 
   server.start();
+});
+
+gulp.task('coverage', ['test'],  function (done) {
+
+    var remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
+
+    return gulp.src('test-results/PhantomJS*/coverage-final.json')
+            .pipe(remapIstanbul({
+                reports: {
+                    'html': 'test-results/coverage-report'
+                },
+                basePath : './'
+            }));
 });
 
 //Source: http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
@@ -249,14 +262,4 @@ gulp.task('package', function (done) {
         .pipe(zip(packageFile.name + '-' + packageFile.version + '.zip'))
         .pipe(gulp.dest(appPaths.distributionPath));
 
-});
-
-//WIP
-gulp.task('coverage', function (done) {
-
-    var remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
-
-    return gulp.src('test-results/**/coverage-final.json')
-        .pipe(remapIstanbul())
-        .pipe(gulp.dest('test-results'));
 });

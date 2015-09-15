@@ -17,6 +17,7 @@ Make sure node.js and git is installed
 * `./gulp.sh serve --external` : Starts HTTP server and accepts external connections
 * `./gulp.sh transpile` : Transpiles all TypeScript files
 * `./gulp.sh test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
+* `./gulp.sh coverage` : Runs all unit tests and build a code coverage report at `/test-results/coverage-report`
 * `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
 * `./gulp.sh package` : Creates a ZIP files containing the bundled version
 
@@ -45,6 +46,7 @@ project
 ├───dist [Bundled version for distribution. See `gulp bundle`]
 ├───bower_components [Raw bower packages]
 └───test-results [JUnit reporter compatible output of unit tests]
+    ├───coverage-report [Cove coverage report]
     └───<test-suite> [Unit tests coverage report]
 ```
 
