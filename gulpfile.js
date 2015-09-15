@@ -116,6 +116,7 @@ gulp.task('test', ['transpile'],  function(done) {
   server.start();
 });
 
+// Generates code coverage report
 gulp.task('coverage', ['test'],  function (done) {
 
     var remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');

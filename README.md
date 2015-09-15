@@ -46,8 +46,8 @@ project
 ├───dist [Bundled version for distribution. See `gulp bundle`]
 ├───bower_components [Raw bower packages]
 └───test-results [JUnit reporter compatible output of unit tests]
-    ├───coverage-report [Cove coverage report]
-    └───<test-suite> [Unit tests coverage report]
+    ├───coverage-report [Code coverage report in HTML format]
+    └───<test-suite> [Code coverage report in JSON and XML (Cobertura) format]
 ```
 
 ### Unit tests
@@ -81,4 +81,4 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 - [ ] Add Windows shell scripts to Gulp, Bower and TSD
 - [ ] Migrate to new-router (https://angular.github.io/router/getting-started)
-- [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212) and [remap-instanbul](https://www.npmjs.com/package/remap-istanbul)
+- [ ] Watch [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212) for istanbul support for code coverages with source maps. Currently supported by remap-istanbul package
