@@ -1,4 +1,4 @@
-module at {
+namespace at {
 
     //TODO: Check http://bit.ly/1HYaQw2 on how turning decorators "strongly typed"
 

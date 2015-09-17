@@ -1,4 +1,4 @@
-module SwapApp.Controllers {
+namespace SwapApp.Controllers {
 
   import ISpecies = SwapApp.Domain.ISpecies;
   import log = SwapApp.Decorators.log;
@@ -21,7 +21,7 @@ module SwapApp.Controllers {
       if (this.species) {
         this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
       } else {
-        this.message = 'Empty species huh? Fine because this API is read-only! :)';        
+        this.message = 'Empty species huh? Fine because this API is read-only! :)';
       }
 
     }

@@ -1,4 +1,4 @@
-module SwapApp.Tests.Controllers {
+namespace SwapApp.Tests.Controllers {
 
   import SpeciesFormController = SwapApp.Controllers.SpeciesFormController;
   import ISpecies = SwapApp.Domain.ISpecies;

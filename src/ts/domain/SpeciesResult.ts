@@ -1,4 +1,4 @@
-module SwapApp.Domain {
+namespace SwapApp.Domain {
 
     export interface ISpecies {
       name : string;

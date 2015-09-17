@@ -1,6 +1,6 @@
 //Source : http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/
 
-module SwapApp.Directives {
+namespace SwapApp.Directives {
 
 
   interface IHighlightScope extends ng.IScope {

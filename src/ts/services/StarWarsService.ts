@@ -1,4 +1,4 @@
-module SwapApp.Services {
+namespace SwapApp.Services {
 
   import SpeciesResult = SwapApp.Domain.ISpeciesResult;
 

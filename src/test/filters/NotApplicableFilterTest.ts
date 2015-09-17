@@ -1,4 +1,4 @@
-module SwapApp.Tests.Filters {
+namespace SwapApp.Tests.Filters {
 
 	import NotApplicableFilter = SwapApp.Filters.NotApplicableFilter;
 

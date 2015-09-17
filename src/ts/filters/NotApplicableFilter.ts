@@ -1,4 +1,4 @@
-module SwapApp.Filters {
+namespace SwapApp.Filters {
 
   export class NotApplicableFilter {
 

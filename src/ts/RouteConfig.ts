@@ -1,4 +1,4 @@
-module SwapApp.Router {
+namespace SwapApp.Router {
 
   //@at.config(SwapApp.mainModule, ['$routeProvider'])
   export class RoutesConfig {

@@ -1,4 +1,4 @@
-module SwapApp.Controllers {
+namespace SwapApp.Controllers {
 
   import StarWarsService = SwapApp.Services.StarWarsService;
   import ISpeciesResult = SwapApp.Domain.ISpeciesResult;

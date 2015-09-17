@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts"/>
 /// <reference path="../../../app-typings/lodash-update.d.ts"/>
 
-module SwapApp.Tests.Services {
+namespace SwapApp.Tests.Services {
 
   import StarWarsService = SwapApp.Services.StarWarsService;
   import ISpeciesResult = SwapApp.Domain.ISpeciesResult;

@@ -1,4 +1,4 @@
-module SwapApp.Tests.Controllers {
+namespace SwapApp.Tests.Controllers {
 
   import MenuController = SwapApp.Controllers.MenuController;
 

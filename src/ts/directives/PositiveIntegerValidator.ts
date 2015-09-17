@@ -1,4 +1,4 @@
-module SwapApp.Directives {
+namespace SwapApp.Directives {
 
   @at.directiveFactory(SwapApp.mainModule, 'positiveInteger')
   export class PositiveIntegerValidator {

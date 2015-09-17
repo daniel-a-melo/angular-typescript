@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/tsd.d.ts"/>
 
-module SwapApp.Tests.Controllers {
+namespace SwapApp.Tests.Controllers {
 
   import SpeciesListController = SwapApp.Controllers.SpeciesListController;
   import StartWarsService = SwapApp.Services.StarWarsService;

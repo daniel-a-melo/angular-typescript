@@ -1,6 +1,6 @@
 // http://stackoverflow.com/questions/29775830/how-to-implement-a-typescript-decorator
 
-module SwapApp.Decorators {
+namespace SwapApp.Decorators {
 
   export function log(target : Object, key : string, descriptor : TypedPropertyDescriptor<any>)  {
 

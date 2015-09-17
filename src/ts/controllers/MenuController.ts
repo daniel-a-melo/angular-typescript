@@ -1,4 +1,4 @@
-module SwapApp.Controllers {
+namespace SwapApp.Controllers {
 
   @at.controller(SwapApp.mainModule, 'menuController')
   @at.inject('$location')
