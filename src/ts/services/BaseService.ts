@@ -1,6 +1,6 @@
 namespace SwapApp.Services {
 
-  export class BaseService {
+  export abstract class BaseService {
 
     constructor(protected $q: ng.IQService, protected $http: ng.IHttpService) {
 
