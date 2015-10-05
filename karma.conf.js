@@ -59,8 +59,9 @@ module.exports = function(config) {
 
      coverageReporter: {
        reporters:[
-        {type: 'html', dir:'test-results/'},
+        /*{type: 'html', dir:'test-results/'},*/
         {type: 'cobertura', dir:'test-results/'},
+        {type: 'json', dir:'test-results/'}
       ]
      },
 

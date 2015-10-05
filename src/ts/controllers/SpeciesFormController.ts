@@ -15,12 +15,20 @@ export class SpeciesFormController {
   @log
   save() : void {
 
-    if (this.species.name === 'error') {
-      throw new Error('Erronenous species name entered');
+      if (this.species && this.species.name === 'error') {
+        throw new Error('Erronenous species name entered');
+      }
+
+      if (this.species) {
+        this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
+      } else {
+        this.message = 'Empty species huh? Fine because this API is read-only! :)';
+      }
+
     }
 
-    this.message = `Thanks for entering the species ${this.species.name}. However, this API is read-only. Sorry :)`;
-  }
+
+  
 
 }
 

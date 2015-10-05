@@ -10,16 +10,26 @@ System.config({
   buildCSS: true,
 
   map: {
-    "angular": "github:angular/bower-angular@1.4.4",
+    "angular": "github:angular/bower-angular@1.4.7",
+    "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.8.0",
+    "angular-mocks": "github:angular/bower-angular-mocks@1.4.7",
     "angular-route": "github:angular/bower-angular-route@1.4.4",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "clean-css": "npm:clean-css@3.4.1",
-    "css": "github:systemjs/plugin-css@0.1.15",
+    "css": "github:systemjs/plugin-css@0.1.18",
     "jquery": "github:components/jquery@2.1.4",
     "lodash": "npm:lodash@3.10.1",
     "qunit": "github:jquery/qunit@1.18.0",
+    "sinon": "npm:sinon@1.17.1",
+    "github:angular/bower-angular-mocks@1.4.7": {
+      "angular": "github:angular/bower-angular@1.4.7"
+    },
     "github:angular/bower-angular-route@1.4.4": {
-      "angular": "github:angular/bower-angular@1.4.4"
+      "angular": "github:angular/bower-angular@1.4.7"
+    },
+    "github:chieffancypants/angular-loading-bar@0.8.0": {
+      "angular": "github:angular/bower-angular@1.4.7",
+      "css": "github:systemjs/plugin-css@0.1.18"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -100,6 +110,10 @@ System.config({
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
+    "npm:formatio@1.1.1": {
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "samsam": "npm:samsam@1.1.2"
+    },
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
@@ -130,6 +144,13 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1",
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
+    },
+    "npm:sinon@1.17.1": {
+      "formatio": "npm:formatio@1.1.1",
+      "lolex": "npm:lolex@1.3.2",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "samsam": "npm:samsam@1.1.2",
+      "util": "npm:util@0.10.3"
     },
     "npm:source-map@0.4.4": {
       "amdefine": "npm:amdefine@1.0.0",

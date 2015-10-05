@@ -1,13 +1,18 @@
-<table>
-  <thead>
-     <td>Name</td>
-     <td>Hair color</td>
-  <thead>
-  <tr data-ng-repeat="species in ctrl.speciesList">
-    <td>
-        {{species.name}}
-        <span class="glyphicon glyphicon-search"></span>
-    </td>
-    <td data-high-light="none" data-value="species.hair_colors">{{species.hair_colors|naFilter}}</td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+         <th>Name</th>
+         <th>Hair color</th>
+        <tr>
+      <thead>
+      <tbody>
+        <tr data-ng-repeat="species in ctrl.speciesList">
+          <td>{{species.name}}</td>
+          <td data-high-light="none" data-value="species.hair_colors">{{species.hair_colors|naFilter}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

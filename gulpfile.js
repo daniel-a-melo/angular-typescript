@@ -9,7 +9,7 @@ var argv = require('yargs').argv;
 var replace = require('gulp-replace');
 var tsd = require('gulp-tsd');
 var jspm = require('jspm');
-
+var del = require('del');
 
 var appPaths = {
   baseSource : 'src', //TypeScript source file root
@@ -35,13 +35,16 @@ gulp.task('fetch-all-dependencies', ['tsd-install']);
 
 
 function doTranspilation(done) {
+
+  del.sync(appPaths.output);
+
   var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript'), inlineSourceMap : false});
   var tsResult = gulp.src(appPaths.sourcePath)
     .pipe(sourcemaps.init())
     .pipe(ts(tsProject));
 
   return tsResult.js
-    .pipe(sourcemaps.write({includeContent: true, debug: true}))
+    .pipe(sourcemaps.write({includeContent: true, debug: true, sourceRoot : '/src/'}))
     .pipe(gulp.dest(appPaths.output));
 }
 
@@ -79,6 +82,20 @@ gulp.task('test', ['transpile'],  function(done) {
   server = new KarmaServer(karmaOptions, done);
 
   server.start();
+});
+
+// Generates code coverage report
+gulp.task('coverage', ['test'],  function (done) {
+
+    var remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
+
+    return gulp.src('test-results/PhantomJS*/coverage-final.json')
+            .pipe(remapIstanbul({
+                reports: {
+                    'html': 'test-results/coverage-report'
+                },
+                basePath : './'
+            }));
 });
 
 //Source: http://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js

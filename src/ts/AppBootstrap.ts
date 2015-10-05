@@ -8,6 +8,7 @@ import './directives/HighlightDirective';
 import './directives/PositiveIntegerValidator';
 import './controllers/SpeciesListController';
 import './controllers/SpeciesFormController';
+import './controllers/MenuController';
 import './RouteConfig';
 
 angular.element(document).ready(() => angular.bootstrap(document, ['app']));

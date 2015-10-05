@@ -2,7 +2,7 @@
 import {SpeciesFormController} from '../../ts/controllers/SpeciesFormController';
 import {ISpecies} from '../../ts/domain/SpeciesResult';
 
-QUnit.module('Controller tests');
+QUnit.module('SpeciesFormController');
 
 QUnit.test('Test save sucessfully', (assert : QUnitAssert) => {
 
@@ -26,3 +26,13 @@ QUnit.test('Test save with incorrect name', (assert : QUnitAssert) => {
   }, new Error('Erronenous species name entered'));
 
 });
+
+  QUnit.test('Test save with empty form', (assert : QUnitAssert) => {
+
+    let ctrl = new SpeciesFormController(<ng.IScope>{});
+    ctrl.species = undefined;
+
+    ctrl.save();
+    assert.equal(ctrl.message, 'Empty species huh? Fine because this API is read-only! :)');
+
+  });
