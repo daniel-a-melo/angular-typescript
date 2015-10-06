@@ -9,7 +9,7 @@ Make sure node.js and git is installed
 * Run `gulp serve`. A HTTP server will be started on port 8080 (or the next port available)
 * Navigate to `http://localhost<port>`
 
-`jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css --inject`
+`jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css + text --inject`
 `jspm unbundle`
 
 http://martinmicunda.com/2015/02/09/how-to-start-writing-apps-with-es6-angular-1x-and-jspm/
@@ -88,3 +88,10 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
 - [ ] Add shell scripts to Gulp, Bower and TSD
+
+
+### Questions/issues
+
+- Cannot load SystemJS or AMD modules
+- How can I config that all modules of a package should be loaded with text plugin?
+- How can I invoke JSPM bundle from Gulp?

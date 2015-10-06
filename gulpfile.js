@@ -9,7 +9,10 @@ var argv = require('yargs').argv;
 var replace = require('gulp-replace');
 var tsd = require('gulp-tsd');
 var jspm = require('jspm');
+var jspmCli = require('jspm/cli');
 var del = require('del');
+var gjspm = require('gulp-jspm');
+var childProcess  = require('child_process');
 
 var appPaths = {
   baseSource : 'src', //TypeScript source file root
@@ -191,6 +194,14 @@ gulp.task('bundle', function (done) {
   //jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css --inject
 
   //jspm.setPackagePath('.');
-  return jspm.bundle('transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css', 'build.js', { inject: true });
+  //return jspm.bundle('transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css', 'build.js', { inject: true });
+
+  //return childProcess.spawn(jspmCli, ['bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css --inject'], {stdio : 'inherit'});
+
+  /*
+  return gulp.src('app/transpiled/ts/AppInit.js')
+    .pipe(gjspm({arithmetic: '+ transpiled/ts/AppBootstrap + css', inject : true}))
+    .pipe(gulp.dest('app/'));
+  */
 
 });

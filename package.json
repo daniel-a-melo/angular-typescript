@@ -16,6 +16,7 @@
     "colors": "^1.1.2",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
+    "gulp-jspm": "^0.4.1",
     "gulp-replace": "^0.5.3",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-tsd": "0.0.4",
@@ -53,7 +54,8 @@
       "jquery": "github:components/jquery@^2.1.4",
       "lodash": "npm:lodash@^3.10.1",
       "qunit": "github:jquery/qunit@^1.18.0",
-      "sinon": "npm:sinon@^1.17.1"
+      "sinon": "npm:sinon@^1.17.1",
+      "text": "github:systemjs/plugin-text@^0.0.2"
     },
     "devDependencies": {}
   }

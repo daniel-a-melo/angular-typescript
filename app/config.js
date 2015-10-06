@@ -21,6 +21,7 @@ System.config({
     "lodash": "npm:lodash@3.10.1",
     "qunit": "github:jquery/qunit@1.18.0",
     "sinon": "npm:sinon@1.17.1",
+    "text": "github:systemjs/plugin-text@0.0.2",
     "github:angular/bower-angular-mocks@1.4.7": {
       "angular": "github:angular/bower-angular@1.4.7"
     },

@@ -48,6 +48,7 @@
         "./typings/sinon/sinon.d.ts",
         "./typings/systemjs/systemjs.d.ts",
         "./typings/tsd.d.ts",
+        "./app-typings/app.d.ts",
         "./app-typings/lodash-update.d.ts",
         "./app-typings/qunit.d.ts"
     ]
