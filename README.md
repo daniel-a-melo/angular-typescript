@@ -1,24 +1,44 @@
-# AngularJS 1.X with TypeScript 1.5 sample application
+# AngularJS 1 with TypeScript sample application
+
+There are two branches on this repo:
+
+- **main** : No module loader is used. [Bower](http://bower.io/) is used as package manager
+- **jspm** : [jspm](http://jspm.io/) is uses as package manager and module loader
+
+Please check the `README.md` file of each branch for specific instructions for each version
 
 ### Quick start
 
-Make sure node.js and git is installed
+Make sure node.js and git are installed
 
-* Run `npm install`
-* Run `./gulp.sh restore`
-* Run `./gulp.sh serve`. A HTTP server will be started on port 8080 (or the next port available)
-* Navigate to `http://localhost<port>`
+**main branch**
+
+* Clone this repository
+* `npm install`
+* `./gulp.sh restore`
+* `./gulp.sh serve`. A HTTP server will be started on port 8080
+* Navigate to `http://localhost:8080`
+
+**jspm branch**
+
+* Clone this repository
+* `git checkout jspm`
+* `npm install`
+* `./jspm.sh install`
+* `./gulp.sh restore`
+* `./gulp.sh serve`. A HTTP server will be started on port 8080
+* Navigate to `http://localhost:8080`
 
 ### Main gulp tasks
 
-* `./gulp.sh restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
+* `./gulp.sh restore` : Fetches all 3rd-party dependencies from package manager (bower or jspm), fetches type definition files (tsd) and transpiles all typescript code
 * `./gulp.sh serve` : Starts HTTP server with server root set to `app` directory
 * `./gulp.sh serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
 * `./gulp.sh serve --external` : Starts HTTP server and accepts external connections
-* `./gulp.sh transpile` : Transpiles all TypeScript files
+* `./gulp.sh transpile` : Transpiles all typescript files
 * `./gulp.sh test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
 * `./gulp.sh coverage` : Runs all unit tests and build a code coverage report at `/test-results/coverage-report`
-* `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
+* `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory
 * `./gulp.sh package` : Creates a ZIP files containing the bundled version
 
 ### Directory structure
