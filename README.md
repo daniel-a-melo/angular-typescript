@@ -1,33 +1,45 @@
-# AngularJS 1.X with TypeScript 1.5 sample application
+# AngularJS 1 with TypeScript sample application
+
+There are two branches on this repo:
+
+- **main** : No module loader is used. [Bower](http://bower.io/) is used as package manager
+- **jspm** : [jspm](http://jspm.io/) is used as package manager and module loader
+
+Please check the `README.md` file of each branch for specific instructions for each version
 
 ### Quick start
 
-Make sure node.js and git is installed
+Make sure node.js and git are installed
 
-* Run `npm install`
-* Run `gulp restore`
-* Run `gulp serve`. A HTTP server will be started on port 8080 (or the next port available)
-* Navigate to `http://localhost<port>`
+**main branch**
 
-`jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css + text --inject`
-`jspm unbundle`
+* Clone this repository
+* `npm install`
+* `./gulp.sh restore`
+* `./gulp.sh serve`. A HTTP server will be started on port 8080
+* Navigate to `http://localhost:8080`
 
-http://martinmicunda.com/2015/02/09/how-to-start-writing-apps-with-es6-angular-1x-and-jspm/
+**jspm branch**
 
-https://github.com/systemjs/plugin-css/issues/61
-https://github.com/systemjs/builder/issues/166
-
+* Clone this repository
+* `git checkout jspm`
+* `npm install`
+* `./jspm.sh install`
+* `./gulp.sh restore`
+* `./gulp.sh serve`. A HTTP server will be started on port 8080
+* Navigate to `http://localhost:8080`
 
 ### Main gulp tasks
 
-* `gulp restore` : Runs `bower install`, `tsd reinstall`, copies main files of each bower package to `app/bower_dependencies` and transpiles all TypeScript files
-* `gulp serve` : Starts HTTP server with server root set to `app` directory
-* `gulp serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
-* `gulp serve --external` : Starts HTTP server and accepts external connections
-* `gulp transpile` : Transpiles all TypeScript files
-* `gulp test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
-* `gulp bundle`: Creates the bundled version for distribution on `dist` directory. Bundled version consists of concatenated javascript files `vendor.js` and ` app.js`
-* `gulp package` : Creates a ZIP files containing the bundled version
+* `./gulp.sh restore` : Fetches all 3rd-party dependencies from package manager (bower or jspm), fetches type definition files (tsd) and transpiles all typescript code
+* `./gulp.sh serve` : Starts HTTP server with server root set to `app` directory
+* `./gulp.sh serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
+* `./gulp.sh serve --external` : Starts HTTP server and accepts external connections
+* `./gulp.sh transpile` : Transpiles all typescript files
+* `./gulp.sh test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
+* `./gulp.sh coverage` : Runs all unit tests and build a code coverage report at `/test-results/coverage-report`
+* `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory
+* `./gulp.sh package` : Creates a ZIP files containing the bundled version
 
 ### Directory structure
 
@@ -38,22 +50,36 @@ project
 │   karma.conf.js [Karma configuration file]
 │   tsconfig.json [TypeScript compiler configuration]
 │   tsd.json [Definetly typed files]
-│   bower.json [Bower packages]
 ├───src [TypeScript source files]
 │   ├───test [Unit tests]
-│   ├───lib [Typescript source files provided by bower packages. They are copied from app/bower_dependencies by a gulp task]
 │   └───ts [Application code]
 |
 ├───app-typings [TypeScript definition files (.d.ts) written for the application]
 ├───typings [TypeScript definition files (d.ts) for third-party javascript libraries. Retrieved using tsd]
-├───app [Resource files (html, css, images, fonts). Only folder that needs to be served. Includes typescript files from bower components though]
+├───app [Resource files (html, css, images, fonts). Only folder that needs to be served]
 │   ├───transpiled [Output folder for TypeScript transpilation]
-│   └───bower_dependencies [Main files of bower packages]
+│   └───jspm_packages [Packages fetched with jspm]
 ├───dist [Bundled version for distribution. See `gulp bundle`]
-├───bower_components [Raw bower packages]
 └───test-results [JUnit reporter compatible output of unit tests]
+    ├───coverage-report [Code coverage report in HTML format]
     └───<test-suite> [Unit tests coverage report]
 ```
+
+### Bundling
+
+Run the command below to create the files `build.js` and `build.js.map`
+
+`./jspm.sh bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css + text --inject`
+
+The bundle contains the following items:
+
+- All 3rd-party and application JavaScript (except `system.js` and `config.js`)
+- All CSS (bundled into `build.js`)
+- All HTML fragments (bundled into `build.js`), except `header.html` and `footer.html`
+
+The command below will undo the bundling:
+
+`./jspm.sh unbundle`
 
 ### Unit tests
 
@@ -75,16 +101,19 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 ### Useful links
 
 * [tsconfig.json schema](http://json.schemastore.org/tsconfig)
-* [Bower registry](http://bower.io/search/)
+* [jspm registry](http://kasperlewau.github.io/registry/#/)
 * [DefinetlyTyped registry](http://definitelytyped.org/tsd/)
 * [typescript decorators, issue #249](https://github.com/Microsoft/TypeScript/issues/2249)
 * [StackOverflow: How to implement a typescript decorator](http://stackoverflow.com/questions/29775830/how-to-implement-a-typescript-decorator)
 * [Decorators & metadata reflection in TypeScript: From Novice to Expert](http://blog.wolksoftware.com/decorators-reflection-javascript-typescript)
+* [How to start writing apps with ES6, Angular 1.x and JSPM](http://martinmicunda.com/2015/02/09/how-to-start-writing-apps-with-es6-angular-1x-and-jspm/)
 
 
 ### TODO
 
-- [ ] Check bootstrap fonts bundling
+- [ ] Implement `restore` task
+- [ ] Implement `bundle` and `package` task
+- [ ] Check bootstrap fonts bundling (https://github.com/systemjs/builder/issues/166 and https://github.com/systemjs/plugin-css/issues/61)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
 - [ ] Add shell scripts to Gulp, Bower and TSD
