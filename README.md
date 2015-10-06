@@ -3,7 +3,7 @@
 There are two branches on this repo:
 
 - **main** : No module loader is used. [Bower](http://bower.io/) is used as package manager
-- **jspm** : [jspm](http://jspm.io/) is uses as package manager and module loader
+- **jspm** : [jspm](http://jspm.io/) is used as package manager and module loader
 
 Please check the `README.md` file of each branch for specific instructions for each version
 
