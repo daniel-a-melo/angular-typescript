@@ -156,10 +156,11 @@ function findCurrentIPAddress() {
 
 // Starts HTTP server with root dir being  ${appPaths.runtimeFilesBase}
 // gulp serve --dist will set root dir to ${appPaths.distributionPath}
+// gulp serve --root will set root dir to application's directory
 // gulp serve --external will accept external connections
 gulp.task('serve', function(done) {
 
-    var rootDir = './' + (argv.dist ? appPaths.distributionPath : appPaths.runtimeFilesBase);
+    var rootDir = './' + (argv.dist ? appPaths.distributionPath : (argv.root ? '' : appPaths.runtimeFilesBase));
     var hostAddress = '0.0.0.0';
     var proxyAddress = undefined;
 
