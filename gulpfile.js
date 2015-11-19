@@ -76,7 +76,8 @@ function doTranspilation(done) {
     .pipe(ts(tsProject));
 
   return tsResult.js
-    .pipe(sourcemaps.write({includeContent: true, debug: true, sourceRoot : '/src/'}))
+    //.pipe(sourcemaps.write({includeContent: true, debug: true, sourceRoot : '/src/'}))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(appPaths.output));
 }
 
