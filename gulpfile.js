@@ -76,8 +76,18 @@ function doTranspilation(done) {
     .pipe(ts(tsProject));
 
   return tsResult.js
+    // Inline source maps that include the original source. No need to serve TS files.
+    // Chrome: Often fails on Chrome
     //.pipe(sourcemaps.write({includeContent: true, debug: true, sourceRoot : '/src/'}))
-    .pipe(sourcemaps.write('.'))
+    
+    // Inline source maps that don't include the original source. Needs to serve TS files
+    // Chrome : Works most of time; Occasionally pauses on JS version instead
+    .pipe(sourcemaps.write({includeContent: false, debug: true, sourceRoot : '/src/'}))
+     
+    // Separate source maps that don't include the original source. Needs to serve TS files 
+    // Chrome : Doesn't work
+    //.pipe(sourcemaps.write('.', {includeContent: false, debug: true, sourceRoot : '/src/'}))
+     
     .pipe(gulp.dest(appPaths.output));
 }
 

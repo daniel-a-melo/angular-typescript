@@ -9,7 +9,7 @@
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "inlineSourceMap": false,
+        "inlineSourceMap": true,
         "outDir": "./app/transpiled",
         "noEmitHelpers": false
     },
