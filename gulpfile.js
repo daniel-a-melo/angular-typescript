@@ -87,6 +87,8 @@ function doTranspilation(done) {
     // Separate source maps that don't include the original source. Needs to serve TS files 
     // Chrome : Doesn't work
     //.pipe(sourcemaps.write('.', {includeContent: false, debug: true, sourceRoot : '/src/'}))
+    
+    //.pipe(sourcemaps.write({includeContent: false, debug: true, sourceRoot : '/home/78581354572/labs/js/angular-typescript/src/'}))
      
     .pipe(gulp.dest(appPaths.output));
 }
