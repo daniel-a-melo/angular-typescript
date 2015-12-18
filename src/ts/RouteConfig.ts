@@ -2,8 +2,9 @@
 
 import 'angular-route';
 import {mainModule} from './AppConfig';
-import * as speciesFormTemplate from 'partials/speciesForm.html!text';
-import * as speciesListTemplate from 'partials/speciesList.html!text';
+//import * as speciesFormTemplate from 'raw!../../app/partials/speciesForm.html';
+import * as speciesFormTemplate from 'raw!../../app/partials/speciesForm.html';
+import * as speciesListTemplate from 'raw!../../app/partials/speciesList.html';
 
 //@at.config(SwapApp.mainModule, ['$routeProvider'])
 export class RoutesConfig {

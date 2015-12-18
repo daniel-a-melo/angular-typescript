@@ -1,9 +1,9 @@
 declare var template : string;
 
-declare module "partials/speciesForm.html!text" {
+declare module "raw!../../app/partials/speciesForm.html" {
   export = template;
 }
 
-declare module "partials/speciesList.html!text" {
+declare module "raw!../../app/partials/speciesList.html" {
   export = template;
 }

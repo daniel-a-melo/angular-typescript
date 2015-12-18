@@ -3,7 +3,8 @@
 There are two branches on this repo:
 
 - **main** : No module loader is used. [Bower](http://bower.io/) is used as package manager
-- **jspm** : [jspm](http://jspm.io/) is used as package manager and module loader
+- **jspm** : [jspm](http://jspm.io/) is used as package manager and module loader/bundler
+- **webpack** : [webpack](http://webpack.github.io/) is used as module loader/bundler and [npm](https://www.npmjs.com/) as package manager
 
 Please check the `README.md` file of each branch for specific instructions for each version
 
@@ -29,24 +30,21 @@ Make sure node.js and git are installed
 * `./gulp.sh serve`. A HTTP server will be started on port 8080
 * Navigate to `http://localhost:8080`
 
-### Main gulp tasks
+**webpack branch** (in progress)
 
-* `./gulp.sh restore` : Fetches all 3rd-party dependencies from package manager (bower or jspm), fetches type definition files (tsd) and transpiles all typescript code
-* `./gulp.sh serve` : Starts HTTP server with server root set to `app` directory
-* `./gulp.sh serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
-* `./gulp.sh serve --external` : Starts HTTP server and accepts external connections
-* `./gulp.sh transpile` : Transpiles all typescript files
-* `./gulp.sh test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
-* `./gulp.sh coverage` : Runs all unit tests and build a code coverage report at `/test-results/coverage-report`
-* `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory
-* `./gulp.sh package` : Creates a ZIP files containing the bundled version
+* Clone this repository
+* `git checkout webpack`
+* `npm install`
+* `npm run serve`. A HTTP server will be started on port 8080
+* Navigate to `http://localhost:8080`
+
 
 ### Directory structure
 
 ```
 project
 │   README.md [This file]
-│   gulpfile.js
+│   webpack.config.js
 │   karma.conf.js [Karma configuration file]
 │   tsconfig.json [TypeScript compiler configuration]
 │   tsd.json [Definetly typed files]
@@ -57,9 +55,6 @@ project
 ├───app-typings [TypeScript definition files (.d.ts) written for the application]
 ├───typings [TypeScript definition files (d.ts) for third-party javascript libraries. Retrieved using tsd]
 ├───app [Resource files (html, css, images, fonts). Only folder that needs to be served]
-│   ├───transpiled [Output folder for TypeScript transpilation]
-│   └───jspm_packages [Packages fetched with jspm]
-├───dist [Bundled version for distribution. See `gulp bundle`]
 └───test-results [JUnit reporter compatible output of unit tests]
     ├───coverage-report [Code coverage report in HTML format]
     └───<test-suite> [Unit tests coverage report]
@@ -67,30 +62,9 @@ project
 
 ### Bundling
 
-Run the command below to create the files `build.js` and `build.js.map`
-
-`./jspm.sh bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css + text --inject`
-
-The bundle contains the following items:
-
-- All 3rd-party and application JavaScript (except `system.js` and `config.js`)
-- All CSS (bundled into `build.js`)
-- All HTML fragments (bundled into `build.js`), except `header.html` and `footer.html`
-
-The command below will undo the bundling:
-
-`./jspm.sh unbundle`
 
 ### Unit tests
 
-Unit tests can be executed via command line using `gulp test`. To run Karma without gulp use the following commands:
-
-`./node_modules/karma/bin/karma start karma.conf.js --single-run`
-`./node_modules/karma/bin/karma start karma.conf.js --single-run --log-level debug` (with debug)
-
-It is possible to use [QUnit](https://qunitjs.com/) test runner using the following URL:
-
-`http://localhost:<port>/test-runner.html`
 
 ### IDE information
 
@@ -111,16 +85,10 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 ### TODO
 
-- [ ] Implement `restore` task
-- [ ] Implement `bundle` and `package` task
-- [ ] Check bootstrap fonts bundling (https://github.com/systemjs/builder/issues/166 and https://github.com/systemjs/plugin-css/issues/61)
+- [ ] Add QUnit and Karma support
+- [ ] Check how to bundle web fonts
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
-- [ ] Add shell scripts to Gulp, Bower and TSD
 
 
 ### Questions/issues
-
-- Cannot load SystemJS or AMD modules
-- How can I config that all modules of a package should be loaded with text plugin?
-- How can I invoke JSPM bundle from Gulp?

@@ -4,7 +4,10 @@
   "description": "AngularJS 1.x application with TypeScript 1.5 (no external modules)",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack-dev-server",
+    "tsd": "tsd",
+    "webpack" : "webpack"
   },
   "keywords": [
     "angular",
@@ -13,50 +16,25 @@
   "author": "Daniel Melo",
   "license": "MIT",
   "devDependencies": {
-    "colors": "^1.1.2",
-    "del": "^2.0.2",
-    "gulp": "^3.9.0",
-    "gulp-jspm": "^0.4.1",
-    "gulp-replace": "^0.5.3",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-tsd": "0.0.4",
-    "gulp-typescript": "^2.8.0",
-    "gulp-useref": "^1.2.0",
-    "gulp-zip": "^3.0.2",
-    "http-server": "^0.8.0",
-    "jspm": "^0.16.1",
-    "karma": "^0.13.3",
-    "karma-chrome-launcher": "^0.2.0",
-    "karma-coverage": "^0.4.2",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-jspm": "^2.0.1",
-    "karma-junit-reporter": "^0.3.2",
-    "karma-phantomjs-launcher": "^0.2.0",
-    "karma-qunit": "^0.1.4",
-    "phantomjs": "^1.9.17",
-    "qunitjs": "^1.18.0",
-    "remap-istanbul": "^0.3.0",
-    "typescript": "^1.6.2",
-    "yargs": "^3.15.0"
+    "copy-webpack-plugin": "^0.3.3",
+    "css-loader": "^0.23.0",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.0",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.7.2",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.5",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
   },
-  "jspm": {
-    "directories": {
-      "baseURL": "app"
-    },
-    "dependencies": {
-      "angular": "github:angular/bower-angular@^1.4.7",
-      "angular-loading-bar": "github:chieffancypants/angular-loading-bar@^0.8.0",
-      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.7",
-      "angular-route": "github:angular/bower-angular-route@^1.4.7",
-      "bootstrap": "github:twbs/bootstrap@^3.3.5",
-      "clean-css": "npm:clean-css@^3.4.1",
-      "css": "github:systemjs/plugin-css@^0.1.15",
-      "jquery": "github:components/jquery@^2.1.4",
-      "lodash": "npm:lodash@^3.10.1",
-      "qunit": "github:jquery/qunit@^1.18.0",
-      "sinon": "npm:sinon@^1.17.1",
-      "text": "github:systemjs/plugin-text@^0.0.2"
-    },
-    "devDependencies": {}
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-loading-bar": "^0.8.0",
+    "angular-route": "^1.4.8",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "qunit": "^0.7.7"
   }
 }
