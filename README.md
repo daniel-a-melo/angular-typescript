@@ -74,6 +74,7 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 
 ### Useful links
 
+* [React webpack cookbook](https://christianalfoni.github.io/react-webpack-cookbook/index.html)
 * [tsconfig.json schema](http://json.schemastore.org/tsconfig)
 * [jspm registry](http://kasperlewau.github.io/registry/#/)
 * [DefinetlyTyped registry](http://definitelytyped.org/tsd/)
