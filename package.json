@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server",
     "tsd": "tsd",
-    "webpack" : "webpack"
+    "webpack": "webpack"
   },
   "keywords": [
     "angular",
@@ -25,6 +25,7 @@
     "ts-loader": "^0.7.2",
     "tsd": "^0.6.5",
     "typescript": "^1.7.5",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
