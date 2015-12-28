@@ -6,15 +6,22 @@ var outputDir = path.resolve(__dirname, 'assets');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: "./src/ts/AppInit.ts",
+    entry : {
+      'app' : './src/ts/AppInit.ts',
+      'tests' : './src/test/testsBootstrap.ts'
+    },
     output: {
         path: outputDir,
-        filename: "bundle.js",
+        filename: '[name].js',
+        souceMapFilename: '[name].map',
         publicPath : '/assets/'
     },
     resolve: {
       // Add `.ts` and `.tsx` as a resolvable extension.
-      extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+      extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+      alias : {
+        sinon : 'sinon/pkg/sinon.js'
+      }
     },
     devServer : {
       contentBase : 'app'
@@ -29,7 +36,8 @@ module.exports = {
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
-        ]
+        ],
+        noParse: [/node_modules\/sinon/]
     },
     plugins : [
       // Simply copies the files over

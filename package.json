@@ -32,10 +32,12 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-loading-bar": "^0.8.0",
+    "angular-mocks": "^1.4.8",
     "angular-route": "^1.4.8",
     "bootstrap": "^3.3.6",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
-    "qunit": "^0.7.7"
+    "qunitjs": "^1.20.0",
+    "sinon": "^1.17.2"
   }
 }
