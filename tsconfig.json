@@ -28,16 +28,16 @@
         "./src/test/testsBootstrap.ts",
         "./src/ts/AppBootstrap.ts",
         "./src/ts/AppConfig.ts",
-        "./src/ts/RouteConfig.ts",
         "./src/ts/controllers/MenuController.ts",
         "./src/ts/controllers/SpeciesFormController.ts",
         "./src/ts/controllers/SpeciesListController.ts",
-        "./src/ts/decorators/LogDecorator.ts",
         "./src/ts/decorators/at-angular-ext.ts",
+        "./src/ts/decorators/LogDecorator.ts",
         "./src/ts/directives/HighlightDirective.ts",
         "./src/ts/directives/PositiveIntegerValidator.ts",
         "./src/ts/domain/SpeciesResult.ts",
         "./src/ts/filters/NotApplicableFilter.ts",
+        "./src/ts/RouteConfig.ts",
         "./src/ts/services/BaseService.ts",
         "./src/ts/services/StarWarsService.ts",
         "./typings/angularjs/angular-mocks.d.ts",
@@ -50,5 +50,8 @@
         "./typings/tsd.d.ts",
         "./app-typings/lodash-update.d.ts",
         "./app-typings/qunit.d.ts"
-    ]
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }

@@ -9,6 +9,7 @@ app-bundle.js
 app-bundle.js.map
 build.js
 build.js.map
+npm-debug.log
 jspm_packages
 **/.idea/workspace.xml
 **/.idea/tasks.xml
