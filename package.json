@@ -40,7 +40,7 @@
     "qunitjs": "^1.18.0",
     "remap-istanbul": "^0.2.0",
     "tsd": "^0.6.5",
-    "typescript": "^1.6.2",
+    "typescript": "^1.8.0",
     "yargs": "^3.15.0"
   }
 }
