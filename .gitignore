@@ -2,6 +2,7 @@ node_modules
 jspm_packages
 transpiled
 typings
+npm-debug.log
 test-results
 dist
 app-bundle.js

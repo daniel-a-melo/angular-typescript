@@ -15,8 +15,8 @@ Make sure node.js and git are installed
 
 * Clone this repository
 * `npm install`
-* `./gulp.sh restore`
-* `./gulp.sh serve`. A HTTP server will be started on port 8080
+* `npm run gulp restore`
+* `npm run gulp serve`. A HTTP server will be started on port 8080
 * Navigate to `http://localhost:8080`
 
 **jspm branch**
@@ -24,22 +24,22 @@ Make sure node.js and git are installed
 * Clone this repository
 * `git checkout jspm`
 * `npm install`
-* `./jspm.sh install`
-* `./gulp.sh restore`
-* `./gulp.sh serve`. A HTTP server will be started on port 8080
+* `npm run jspm install`
+* `npm run gulp restore`
+* `npm run gulp serve`. A HTTP server will be started on port 8080
 * Navigate to `http://localhost:8080`
 
 ### Main gulp tasks
 
-* `./gulp.sh restore` : Fetches all 3rd-party dependencies from package manager (bower or jspm), fetches type definition files (tsd) and transpiles all typescript code
-* `./gulp.sh serve` : Starts HTTP server with server root set to `app` directory
-* `./gulp.sh serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
-* `./gulp.sh serve --external` : Starts HTTP server and accepts external connections
-* `./gulp.sh transpile` : Transpiles all typescript files
-* `./gulp.sh test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
-* `./gulp.sh coverage` : Runs all unit tests and build a code coverage report at `/test-results/coverage-report`
-* `./gulp.sh bundle`: Creates the bundled version for distribution on `dist` directory
-* `./gulp.sh package` : Creates a ZIP files containing the bundled version
+* `npm run gulp restore` : Fetches all 3rd-party dependencies from package manager (bower or jspm), fetches type definition files (tsd) and transpiles all typescript code
+* `npm run gulp serve` : Starts HTTP server with server root set to `app` directory
+* `npm run gulp serve --dist` : Starts HTTP server with server root set to `dist` directory (bundled version)
+* `npm run gulp serve --external` : Starts HTTP server and accepts external connections
+* `npm run gulp transpile` : Transpiles all typescript files
+* `npm run gulp test` : Runs all unit tests using [Karma](http://karma-runner.github.io)
+* `npm run gulp coverage` : Runs all unit tests and build a code coverage report at `/test-results/coverage-report`
+* `npm run gulp bundle`: Creates the bundled version for distribution on `dist` directory
+* `npm run gulp package` : Creates a ZIP files containing the bundled version
 
 ### Directory structure
 
@@ -69,7 +69,7 @@ project
 
 Run the command below to create the files `build.js` and `build.js.map`
 
-`./jspm.sh bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css + text --inject`
+`npm run jspm bundle transpiled/ts/AppInit + transpiled/ts/AppBootstrap + css + text --inject`
 
 The bundle contains the following items:
 
@@ -79,7 +79,7 @@ The bundle contains the following items:
 
 The command below will undo the bundling:
 
-`./jspm.sh unbundle`
+`npm run jspm unbundle`
 
 ### Unit tests
 
@@ -116,11 +116,9 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 - [ ] Check bootstrap fonts bundling (https://github.com/systemjs/builder/issues/166 and https://github.com/systemjs/plugin-css/issues/61)
 - [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
 - [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
-- [ ] Add shell scripts to Gulp, Bower and TSD
-
 
 ### Questions/issues
 
-- Cannot load SystemJS or AMD modules
+- When using FF with firebug cannot load SystemJS or AMD modules (https://github.com/systemjs/systemjs/issues/835)
 - How can I config that all modules of a package should be loaded with text plugin?
 - How can I invoke JSPM bundle from Gulp?
