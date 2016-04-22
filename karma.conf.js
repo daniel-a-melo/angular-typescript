@@ -24,18 +24,23 @@ module.exports = function(config) {
 
     files : [
       //'./node_modules/phantomjs-polyfill/bind-polyfill.js',
-      'app/transpiled/test/**/*Test.js'
-      //'app/transpiled/test/testsBootstrap.js'
+      //'app/transpiled/test/**/*Test.js',
+      //'app/transpiled/test/testsBootstrap.js',
+      './src/test/**/*Test.ts'
     ],
 
     preprocessors: {
       //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap'],
       //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap',  'coverage'],
-      'app/transpiled/test/**/*Test.js' : ['webpack', 'sourcemap']
+      //'app/transpiled/test/**/*Test.js' : ['webpack', 'sourcemap']
+      'src/test/**/*Test.ts' : ['webpack', 'sourcemap']
     },
 
     webpack : {
-      extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+      resolve : {
+        extensions: ['', '.js', '.ts'],
+      },
+      //extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
       devtool: 'inline-source-map',
       module: {
         loaders: [
@@ -43,7 +48,8 @@ module.exports = function(config) {
           { test: /\.tsx?$/, loader: 'ts-loader' },
         ],
         postLoaders : [
-          { test: /\.js$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
+          //{ test: /\.js$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
+          { test: /\.ts$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
         ]
       },
 
