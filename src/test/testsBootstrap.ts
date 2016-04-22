@@ -11,4 +11,4 @@ import './services/StarWarsServiceTest';
 import './filters/NotApplicableFilterTest';
 
 QUnit.load();
-QUnit.start(); //Why needed when loading it using a module loader?
+//QUnit.start(); //Why needed when loading it using a module loader?

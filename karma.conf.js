@@ -1,5 +1,6 @@
-// Karma configuration
-// Generated on Wed Jul 22 2015 16:03:58 GMT-0300 (BRT)
+var webpackConfig = require('./webpack.config.js');
+webpackConfig.entry = {};
+
 
 module.exports = function(config) {
   config.set({
@@ -10,29 +11,49 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jspm','qunit'],
+    frameworks: ['qunit'],
 
     plugins: [
-      'karma-jspm',
       'karma-phantomjs-launcher',
-      'karma-firefox-launcher',
       'karma-qunit',
       'karma-junit-reporter',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-webpack'
     ],
 
-    jspm: {
-        // Edit this to your needs
-        loadFiles: ['app/transpiled/test/**/*Test.js'],
-        serveFiles: ['app/transpiled/**/*.+(js|html|css|json)']
+    files : [
+      //'./node_modules/phantomjs-polyfill/bind-polyfill.js',
+      //'app/transpiled/test/**/*Test.js'
+      'app/transpiled/test/testsBootstrap.js'
+    ],
+
+    preprocessors: {
+      'app/transpiled/test/testsBootstrap.js' : ['webpack', 'coverage'],
+      //'app/transpiled/test/**/*Test.js' : ['webpack', 'coverage']
     },
 
-
-    proxies: {
-      '/app/transpiled/test': '/base/app/transpiled/test',
-      '/app/transpiled/': '/base/app/transpiled',
-      '/jspm_packages/': '/base/app/jspm_packages/'
+    webpack : {
+      extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [
+          { test: /\.css$/, loader: 'style!css' },
+          { test: /\.tsx?$/, loader: 'ts-loader' },
+        ]
+      }
     },
+
+    webpackMiddleware: {
+        // webpack-dev-middleware configuration
+        // i. e.
+        noInfo: true
+    },
+
+    // proxies: {
+    //   '/app/transpiled/test': '/base/app/transpiled/test',
+    //   '/app/transpiled/': '/base/app/transpiled',
+    //   '/jspm_packages/': '/base/app/jspm_packages/'
+    // },
 
     // list of files to exclude
     exclude: [
@@ -41,9 +62,6 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      'app/transpiled/ts/**/*.js': ['coverage']
-    },
 
 
     // test results reporter to use
@@ -59,7 +77,7 @@ module.exports = function(config) {
 
      coverageReporter: {
        reporters:[
-        /*{type: 'html', dir:'test-results/'},*/
+        {type: 'html', dir:'test-results/'},
         {type: 'cobertura', dir:'test-results/'},
         {type: 'json', dir:'test-results/'}
       ]
@@ -89,6 +107,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   })
 }

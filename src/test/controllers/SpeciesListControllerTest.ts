@@ -1,9 +1,11 @@
 /// <reference path="../../../typings/tsd.d.ts"/>
+//https://github.com/sinonjs/sinon/issues/830
 
 import {SpeciesListController} from '../../ts/controllers/SpeciesListController';
 import {StarWarsService} from '../../ts/services/StarWarsService';
 import {ISpeciesResult} from '../../ts/domain/SpeciesResult';
 import * as sinon from 'sinon';
+//import sinon from 'sinon/pkg/sinon.js';
 import * as _ from 'lodash';
 
 var mockService : StarWarsService;
@@ -24,5 +26,6 @@ QUnit.test('Read species successfully', (assert : QUnitAssert) => {
 
   var controller = new SpeciesListController(<ng.IScope>{}, _, mockService);
   assert.deepEqual(controller.speciesList, mockResults.results, 'Species data fetched successfully');
+  assert.equal(true, true);
 
 });
