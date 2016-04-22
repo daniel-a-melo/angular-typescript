@@ -19,9 +19,6 @@ module.exports = {
     resolve: {
       // Add `.ts` and `.tsx` as a resolvable extension.
       extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
-      alias : {
-        //sinon : 'sinon/pkg/sinon.js'
-      }
     },
     devServer : {
       contentBase : 'app'
@@ -36,10 +33,7 @@ module.exports = {
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" },
-            { test: /sinon\/pkg\/sinon\.js/, loader: 'imports?define=>false,require=>false' }
         ],
-        //noParse: [/node_modules\/sinon/]
-        //noParse: [/\/sinon\.js/]
     },
     plugins : [
       // Simply copies the files over

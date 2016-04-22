@@ -61,12 +61,6 @@ module.exports = function(config) {
         noInfo: true
     },
 
-    // proxies: {
-    //   '/app/transpiled/test': '/base/app/transpiled/test',
-    //   '/app/transpiled/': '/base/app/transpiled',
-    //   '/jspm_packages/': '/base/app/jspm_packages/'
-    // },
-
     // list of files to exclude
     exclude: [
     ],
