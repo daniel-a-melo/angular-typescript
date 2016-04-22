@@ -18,18 +18,20 @@ module.exports = function(config) {
       'karma-qunit',
       'karma-junit-reporter',
       'karma-coverage',
-      'karma-webpack'
+      'karma-webpack',
+      'karma-sourcemap-loader'
     ],
 
     files : [
       //'./node_modules/phantomjs-polyfill/bind-polyfill.js',
-      //'app/transpiled/test/**/*Test.js'
-      'app/transpiled/test/testsBootstrap.js'
+      'app/transpiled/test/**/*Test.js'
+      //'app/transpiled/test/testsBootstrap.js'
     ],
 
     preprocessors: {
-      'app/transpiled/test/testsBootstrap.js' : ['webpack', 'coverage'],
-      //'app/transpiled/test/**/*Test.js' : ['webpack', 'coverage']
+      //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap'],
+      //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap',  'coverage'],
+      'app/transpiled/test/**/*Test.js' : ['webpack', 'sourcemap']
     },
 
     webpack : {
@@ -39,8 +41,12 @@ module.exports = function(config) {
         loaders: [
           { test: /\.css$/, loader: 'style!css' },
           { test: /\.tsx?$/, loader: 'ts-loader' },
+        ],
+        postLoaders : [
+          { test: /\.js$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
         ]
-      }
+      },
+
     },
 
     webpackMiddleware: {
