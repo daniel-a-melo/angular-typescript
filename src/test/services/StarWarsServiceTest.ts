@@ -5,7 +5,7 @@ import {StarWarsService} from '../../ts/services/StarWarsService';
 import {ISpeciesResult} from '../../ts/domain/SpeciesResult';
 import {mainModule} from '../../ts/AppConfig';
 import 'angular-mocks';
-import * as _ from 'lodash'; 
+import {isMatch} from 'lodash';
 
 var $injector : ng.auto.IInjectorService;
 var $httpBackend : angular.IHttpBackendService;
@@ -54,7 +54,7 @@ QUnit.test('Test read species sucessfully', (assert : QUnitAssert) => {
   var done = assert.async();
 
   service.readSpecies().then((data) => {
-    assert.ok(_.isMatch(data, mockResponse), 'Correct return object');
+    assert.ok(isMatch(data, mockResponse), 'Correct return object');
     done();
   });
 

@@ -1,5 +1,5 @@
-var webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = {};
+// var webpackConfig = require('./webpack.config.js');
+// webpackConfig.entry = {};
 
 
 module.exports = function(config) {
@@ -19,7 +19,9 @@ module.exports = function(config) {
       'karma-junit-reporter',
       'karma-coverage',
       'karma-webpack',
-      'karma-sourcemap-loader'
+      'karma-sourcemap-loader',
+      'karma-remap-istanbul',
+      require('./karma-remap-coverage.js')
     ],
 
     files : [
@@ -33,7 +35,7 @@ module.exports = function(config) {
       //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap'],
       //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap',  'coverage'],
       //'app/transpiled/test/**/*Test.js' : ['webpack', 'sourcemap']
-      'src/test/**/*Test.ts' : ['webpack', 'sourcemap']
+      'src/test/**/*Test.ts' : ['webpack' /*, 'sourcemap'*/]
     },
 
     webpack : {
@@ -49,7 +51,7 @@ module.exports = function(config) {
         ],
         postLoaders : [
           //{ test: /\.js$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
-          { test: /\.ts$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
+          { test: /\.ts$/, exclude: /(test|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
         ]
       },
 
@@ -73,7 +75,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots', 'junit', 'coverage'],
+    reporters: ['dots', 'junit', 'coverage', /* 'karma-remap-istanbul', */ 'remap-coverage'],
 
     junitReporter: {
        outputDir: './test-results', // results will be saved as $outputDir/$browserName.xml
@@ -83,11 +85,20 @@ module.exports = function(config) {
 
      coverageReporter: {
        reporters:[
-        {type: 'html', dir:'test-results/'},
-        {type: 'cobertura', dir:'test-results/'},
-        {type: 'json', dir:'test-results/'}
+        //{type: 'html', dir:'test-results/'},
+        /*{type: 'cobertura', dir:'test-results', subdir : 'coverage', file : 'cobertura-coverage.xml'},*/
+        {type: 'json', dir:'coverage' , subdir : 'json', file : 'coverage-final.json'}
       ]
      },
+
+    //  remapIstanbulReporter: {
+    //    src: 'coverage/json/coverage-final.json',
+    //    reports: {
+    //      html: 'test-results/coverage-report'
+    //    },
+    //    timeoutNotCreated: 5000, // default value
+    //    timeoutNoMoreFiles: 5000 // default value
+    //  },
 
     // web server port
     port: 9876,

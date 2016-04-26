@@ -1,0 +1,6 @@
+https://github.com/SitePen/remap-istanbul
+https://git.serpro/snippets/1
+https://softwarepublico.gov.br/gitlab/noosfero-themes/angular-theme/blob/master/webpack.config.js
+
+1 - Tentar utilizar função remapIstanbul no karma-remap-coverage
+2 - Mudar tsconfig para ficar só com excludes

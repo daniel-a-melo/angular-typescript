@@ -2,10 +2,14 @@ var path = require('path');
 
 var webpack = require('webpack');
 var srcDir = path.resolve(__dirname, 'src/ts');
-var outputDir = path.resolve(__dirname, 'assets');
+var outputDir = path.resolve(__dirname, 'dist');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var WebpackOnBuildPlugin = require('on-build-webpack');
 
-module.exports = {
+var NPM_EVENT = process.env.npm_lifecycle_event;
+var isCoverage = NPM_EVENT === 'coverage';
+
+var webpackConfig = {
     entry : {
       'app' : './src/ts/AppInit.ts',
       'tests' : './src/test/testsBootstrap.ts'
@@ -45,3 +49,15 @@ module.exports = {
     ],
     devtool: 'source-map'
 };
+
+if (isCoverage) {
+
+  var onBuildPlugin = new WebpackOnBuildPlugin(function(stats) {
+    console.log('After build');
+  });
+  
+  webpackConfig.plugins.push(onBuildPlugin);
+
+}
+
+module.exports = webpackConfig;

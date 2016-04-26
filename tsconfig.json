@@ -1,5 +1,6 @@
 {
     "version": "1.5.1",
+    "compileOnSave": false,
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -9,9 +10,9 @@
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "inlineSourceMap": false,
-        "sourceMap": true,
-        "outDir": "./app/transpiled",
+        "inlineSourceMap": true,
+        "sourceMap": false,
+        "sourceRoot": "src",
         "noEmitHelpers": false
     },
     "filesGlob": [
