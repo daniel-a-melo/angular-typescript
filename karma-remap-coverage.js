@@ -1,12 +1,17 @@
 var fs = require('fs');
+var path = require('path');
 var chokidar = require('chokidar');
-var loadCoverage = require('remap-istanbul/lib/loadCoverage');
-var remap = require('remap-istanbul/lib/remap');
-var writeReport = require('remap-istanbul/lib/writeReport');
+var remapIstanbul = require('remap-istanbul');
 
 var RemapCoverageReporter = function (baseReporterDecorator, config, logger, helper, formatError) {
 
   //baseReporterDecorator(this);
+
+  var remapCoverageReporterConfig = config.remapCoverageReporter || {};
+  var sourceDir = remapCoverageReporterConfig.srcDir;
+  var sourceFile = remapCoverageReporterConfig.srcFile;
+  var sourceFilePath = path.join(sourceDir, sourceFile);
+  var htmlOutput = remapCoverageReporterConfig.htmlOutput;
 
   var pendingExecution = false;
   var executionDone;
@@ -17,37 +22,30 @@ var RemapCoverageReporter = function (baseReporterDecorator, config, logger, hel
 
     pendingExecution = true;
 
-    var watcher = chokidar.watch('coverage/json', {
+    var watcher = chokidar.watch(sourceDir, {
       awaitWriteFinish: {
         stabilityThreshold: 500,
         pollInterval: 100
       }
     }).on('add', function (path) {
 
-      // fs.readFile('coverage/json/coverage-final.json', 'utf8', function(err, data) {
-      //   if (err) throw err;
-      //   console.log(data);
-      //   executionDone();
-      // });
+      log.info('Remapping ' + sourceFilePath + ' using source maps');
 
-      console.log('Will remap');
-
-      var collector = remap(loadCoverage('coverage/json/coverage-final.json'), {
-        basePath: 'src/ts'
-      });
-      
-      writeReport(collector, 'html', 'coverage/html').then(function () {
-        console.log('Remap complete');
-        executionDone();
-      });
-      // writeReport(collector, 'json', 'coverage/json/coverage-final-remmaped.json').then(function () {
-      // });
+      remapIstanbul(sourceFilePath, { html : htmlOutput  }).then(
+        function (response) { completeExecution(); },
+        function (errorResponse) { log.warn(errorResponse); completeExecution(); }
+      );
 
       watcher.close();
 
     });
 
   };
+
+  function completeExecution() {
+    log.info('Remapping of ' + sourceFilePath + ' complete');
+    executionDone();
+  }
 
   this.onExit = function (done) {
     if (pendingExecution) {

@@ -75,7 +75,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots', 'junit', 'coverage', /* 'karma-remap-istanbul', */ 'remap-coverage'],
+    reporters: ['dots', 'junit', 'coverage', 'remap-coverage'],
 
     junitReporter: {
        outputDir: './test-results', // results will be saved as $outputDir/$browserName.xml
@@ -85,20 +85,16 @@ module.exports = function(config) {
 
      coverageReporter: {
        reporters:[
-        //{type: 'html', dir:'test-results/'},
-        /*{type: 'cobertura', dir:'test-results', subdir : 'coverage', file : 'cobertura-coverage.xml'},*/
-        {type: 'json', dir:'coverage' , subdir : 'json', file : 'coverage-final.json'}
+        {type: 'cobertura', dir:'test-results', subdir : 'coverage/cobertura', file : 'cobertura-coverage.xml'},
+        {type: 'json', dir:'test-results' , subdir : 'coverage/json', file : 'coverage-final.json'}
       ]
      },
 
-    //  remapIstanbulReporter: {
-    //    src: 'coverage/json/coverage-final.json',
-    //    reports: {
-    //      html: 'test-results/coverage-report'
-    //    },
-    //    timeoutNotCreated: 5000, // default value
-    //    timeoutNoMoreFiles: 5000 // default value
-    //  },
+     remapCoverageReporter : {
+       srcDir : 'test-results/coverage/json',
+       srcFile : 'coverage-final.json',
+       htmlOutput : 'test-results/coverage/html'
+     },
 
     // web server port
     port: 9876,

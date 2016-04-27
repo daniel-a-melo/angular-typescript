@@ -2,10 +2,13 @@ node_modules
 transpiled
 assets
 typings
-test-results
 dist
 bundle.js
 bundle.js.map
 **/.idea/workspace.xml
 **/.idea/tasks.xml
 src/lib
+test-results/coverage/cobertura
+test-results/coverage/html
+test-results/coverage/json/coverage-final.json
+test-results/TESTS*
