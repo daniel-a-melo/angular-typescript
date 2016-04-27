@@ -7,7 +7,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var WebpackOnBuildPlugin = require('on-build-webpack');
 
 var NPM_EVENT = process.env.npm_lifecycle_event;
-var isCoverage = NPM_EVENT === 'coverage';
+var isTest = NPM_EVENT === 'test';
 
 var webpackConfig = {
     entry : {
@@ -39,6 +39,7 @@ var webpackConfig = {
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" },
         ],
     },
+
     plugins : [
       // Simply copies the files over
       // new CopyWebpackPlugin([
@@ -50,12 +51,12 @@ var webpackConfig = {
     devtool: 'source-map'
 };
 
-if (isCoverage) {
+if (isTest) {
 
   var onBuildPlugin = new WebpackOnBuildPlugin(function(stats) {
     console.log('After build');
   });
-  
+
   webpackConfig.plugins.push(onBuildPlugin);
 
 }

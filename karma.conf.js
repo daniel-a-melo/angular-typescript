@@ -55,6 +55,14 @@ module.exports = function(config) {
         ]
       },
 
+      ts : {
+        compilerOptions : {
+          sourceMap : false,
+          sourceRoot : 'src',
+          inlineSourceMap : true
+        }
+      }
+
     },
 
     webpackMiddleware: {

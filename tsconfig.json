@@ -10,9 +10,8 @@
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "inlineSourceMap": true,
-        "sourceMap": false,
-        "sourceRoot": "src",
+        "inlineSourceMap": false,
+        "sourceMap": true,
         "noEmitHelpers": false
     },
     "filesGlob": [
