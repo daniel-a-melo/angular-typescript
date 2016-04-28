@@ -12,7 +12,7 @@ export class SpeciesFormController {
 
   constructor($scope : ng.IScope) {}
 
-  @log
+  //@log
   save() : void {
 
       if (this.species && this.species.name === 'error') {
@@ -28,7 +28,7 @@ export class SpeciesFormController {
     }
 
 
-  
+
 
 }
 

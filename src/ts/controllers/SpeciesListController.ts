@@ -13,7 +13,6 @@ export class SpeciesListController {
   constructor($scope : ng.IScope, _ : _.LoDashStatic, starWarsService : StarWarsService) {
     this.starWarsService = starWarsService;
     this.readSpecies();
-    console.log(`Lodash version : ${_.VERSION}`);
   }
 
   readSpecies() : void {

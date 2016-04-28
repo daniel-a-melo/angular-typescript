@@ -10,5 +10,6 @@ import './controllers/SpeciesListController';
 import './controllers/SpeciesFormController';
 import './controllers/MenuController';
 import './RouteConfig';
+import './TemplatesConfig';
 
 angular.element(document).ready(() => angular.bootstrap(document, ['app']));

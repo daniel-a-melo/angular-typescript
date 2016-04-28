@@ -40,6 +40,7 @@
         "./src/ts/RouteConfig.ts",
         "./src/ts/services/BaseService.ts",
         "./src/ts/services/StarWarsService.ts",
+        "./src/ts/TemplatesConfig.ts",
         "./typings/angularjs/angular-mocks.d.ts",
         "./typings/angularjs/angular-route.d.ts",
         "./typings/angularjs/angular.d.ts",

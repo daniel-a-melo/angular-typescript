@@ -35,7 +35,7 @@ Make sure node.js and git are installed
 * Clone this repository
 * `git checkout webpack`
 * `npm install`
-* `npm run serve`. A HTTP server will be started on port 8080
+* `npm run dev`. A HTTP server will be started on port 8080
 * Navigate to `http://localhost:8080`
 
 

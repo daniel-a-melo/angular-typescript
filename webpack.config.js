@@ -7,7 +7,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var WebpackOnBuildPlugin = require('on-build-webpack');
 
 var NPM_EVENT = process.env.npm_lifecycle_event;
-var isTest = NPM_EVENT === 'test';
+var isBuild = NPM_EVENT === 'build';
 
 var webpackConfig = {
     entry : {
@@ -15,7 +15,7 @@ var webpackConfig = {
       'tests' : './src/test/testsBootstrap.ts'
     },
     output: {
-        path: outputDir,
+        path: outputDir + '/assets',
         filename: '[name].js',
         souceMapFilename: '[name].map',
         publicPath : '/assets/'
@@ -41,24 +41,21 @@ var webpackConfig = {
     },
 
     plugins : [
-      // Simply copies the files over
-      // new CopyWebpackPlugin([
-      //     { from: dir_html } // to: output.path
-      // ]),
       // Avoid publishing files when compilation fails
       new webpack.NoErrorsPlugin()
     ],
     devtool: 'source-map'
 };
 
-if (isTest) {
+if (isBuild) {
+
+  webpackConfig.plugins.push(new CopyWebpackPlugin([
+      { context : 'app', from: '**/*', to : outputDir }
+  ]));
 
   var onBuildPlugin = new WebpackOnBuildPlugin(function(stats) {
-    console.log('After build');
   });
-
   webpackConfig.plugins.push(onBuildPlugin);
-
 }
 
 module.exports = webpackConfig;
