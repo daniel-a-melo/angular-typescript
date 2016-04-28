@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/tsd.d.ts"/>
-/// <reference path="../../../app-typings/lodash-update.d.ts"/>
+
 
 import {StarWarsService} from '../../ts/services/StarWarsService';
 import {ISpeciesResult} from '../../ts/domain/SpeciesResult';
