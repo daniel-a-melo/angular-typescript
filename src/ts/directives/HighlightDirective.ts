@@ -1,5 +1,5 @@
 //Source : http://blog.aaronholmes.net/writing-angularjs-directives-as-typescript-classes/
-import {mainModule} from '../AppConfig';
+import {mainModule} from '../App';
 
 interface IHighlightScope extends ng.IScope {
   value : string;

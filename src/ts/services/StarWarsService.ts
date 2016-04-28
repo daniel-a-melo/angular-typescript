@@ -1,6 +1,6 @@
 import {BaseService} from './BaseService';
 import {ISpeciesResult} from '../domain/SpeciesResult';
-import {mainModule} from '../AppConfig';
+import {mainModule} from '../App';
 
 export class StarWarsService extends BaseService  {
 

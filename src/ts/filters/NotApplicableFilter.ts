@@ -1,4 +1,4 @@
-import {mainModule} from '../AppConfig';
+import {mainModule} from '../App';
 
 //@at.filter(SwapApp.mainModule, 'naFilter')
 export class NotApplicableFilter {

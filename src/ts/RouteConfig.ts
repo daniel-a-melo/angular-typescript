@@ -1,7 +1,7 @@
 /// <reference path="../../app-typings/app.d.ts"/>
 
 import 'angular-route';
-import {mainModule} from './AppConfig';
+import {mainModule} from './App';
 
 //@at.config(SwapApp.mainModule, ['$routeProvider'])
 export class RoutesConfig {

@@ -1,4 +1,4 @@
-import {mainModule} from '../AppConfig';
+import {mainModule} from '../App';
 
 //  @at.controller(SwapApp.mainModule, 'menuController')
 //  @at.inject('$location')

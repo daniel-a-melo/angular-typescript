@@ -28,6 +28,7 @@ module.exports = function(config) {
       //'./node_modules/phantomjs-polyfill/bind-polyfill.js',
       //'app/transpiled/test/**/*Test.js',
       //'app/transpiled/test/testsBootstrap.js',
+      './src/ts/AppConfig.ts',
       './src/test/**/*Test.ts'
     ],
 
@@ -35,6 +36,7 @@ module.exports = function(config) {
       //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap'],
       //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap',  'coverage'],
       //'app/transpiled/test/**/*Test.js' : ['webpack', 'sourcemap']
+      'src/ts/AppConfig.ts' : ['webpack'],
       'src/test/**/*Test.ts' : ['webpack' /*, 'sourcemap'*/]
     },
 

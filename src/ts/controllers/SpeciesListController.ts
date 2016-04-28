@@ -1,6 +1,6 @@
 import {StarWarsService} from '../services/StarWarsService';
 import {ISpeciesResult, ISpecies} from '../domain/SpeciesResult';
-import {mainModule} from '../AppConfig';
+import {mainModule} from '../App';
 
 
 export class SpeciesListController {

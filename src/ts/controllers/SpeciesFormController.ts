@@ -1,6 +1,6 @@
 import {ISpecies} from '../domain/SpeciesResult';
 import {log} from '../decorators/LogDecorator';
-import {mainModule} from '../AppConfig';
+import {mainModule} from '../App';
 
 
 //@at.controller(SwapApp.mainModule, 'speciesFormController')

@@ -3,7 +3,7 @@
 
 import {StarWarsService} from '../../ts/services/StarWarsService';
 import {ISpeciesResult} from '../../ts/domain/SpeciesResult';
-import {mainModule} from '../../ts/AppConfig';
+import {mainModule} from '../../ts/App';
 import 'angular-mocks';
 import {isMatch} from 'lodash';
 
