@@ -49,9 +49,15 @@ var webpackConfig = {
 
 if (isBuild) {
 
+  delete webpackConfig.entry['tests'];
+
   webpackConfig.plugins.push(new CopyWebpackPlugin([
       { context : 'app', from: '**/*', to : outputDir }
-  ]));
+  ], {
+    ignore : [
+      'test-runner.html'
+    ]
+  }));
 
   var onBuildPlugin = new WebpackOnBuildPlugin(function(stats) {
   });
