@@ -3,13 +3,13 @@ import {mainModule} from '../App';
 
 
 //@at.directiveFactory(SwapApp.mainModule, 'positiveInteger')
-export class PositiveIntegerValidator {
+export class PositiveIntegerValidatorDirective {
   restrict : string =  'A';
   require : string = 'ngModel';
   link: (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ngModel : ng.INgModelController) => void;
 
   constructor() {
-    PositiveIntegerValidator.prototype.link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ngModel : ng.INgModelController) => {
+    PositiveIntegerValidatorDirective.prototype.link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ngModel : ng.INgModelController) => {
       ngModel.$validators['positive-integer'] = (modelValue: any, viewValue: string) : boolean => {
         if (modelValue !== undefined) {
           var valid = this.isPosiveInteger(modelValue);
@@ -40,11 +40,11 @@ export class PositiveIntegerValidator {
 
   static create() {
     var directive = () => {
-      return new PositiveIntegerValidator();
+      return new PositiveIntegerValidatorDirective();
     };
     return directive;
   }
 
 }
 
-angular.module(mainModule).directive('positiveInteger', PositiveIntegerValidator.create());
+angular.module(mainModule).directive('positiveInteger', PositiveIntegerValidatorDirective.create());

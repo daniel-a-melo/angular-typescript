@@ -3,15 +3,11 @@
 // Figure out it is only needed on this file and not on the others
 
 import {mainModule} from './App';
-import './services/StarWarsService';
-import './filters/NotApplicableFilter';
-import './directives/HighlightDirective';
-import './directives/PositiveIntegerValidator';
-import './controllers/SpeciesListController';
-import './controllers/SpeciesFormController';
-import './controllers/MenuController';
 import './RouteConfig';
 import './TemplatesConfig';
+
+var angularComponentsContext = require.context('.', true, /Controller$|Filter$|Directive$|Service$/);
+angularComponentsContext.keys().forEach(angularComponentsContext);
 
 
 angular.element(document).ready(() => angular.bootstrap(document, [mainModule]));
