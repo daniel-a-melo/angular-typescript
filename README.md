@@ -12,25 +12,7 @@ Please check the `README.md` file of each branch for specific instructions for e
 
 Make sure node.js and git are installed
 
-**main branch**
-
-* Clone this repository
-* `npm install`
-* `./gulp.sh restore`
-* `./gulp.sh serve`. A HTTP server will be started on port 8080
-* Navigate to `http://localhost:8080`
-
-**jspm branch**
-
-* Clone this repository
-* `git checkout jspm`
-* `npm install`
-* `./jspm.sh install`
-* `./gulp.sh restore`
-* `./gulp.sh serve`. A HTTP server will be started on port 8080
-* Navigate to `http://localhost:8080`
-
-**webpack branch** (in progress)
+**webpack branch**
 
 * Clone this repository
 * `git checkout webpack`
@@ -51,26 +33,23 @@ project
 ├───src [TypeScript source files]
 │   ├───test [Unit tests]
 │   └───ts [Application code]
-|
+│   └───html [HTML templates]
 ├───app-typings [TypeScript definition files (.d.ts) written for the application]
 ├───typings [TypeScript definition files (d.ts) for third-party javascript libraries. Retrieved using tsd]
 ├───app [Resource files (html, css, images, fonts). Only folder that needs to be served]
 └───test-results [JUnit reporter compatible output of unit tests]
-    ├───coverage-report [Code coverage report in HTML format]
+    ├───coverage [Code coverage report in HTML, Cobertura XML and JSON formats]
     └───<test-suite> [Unit tests coverage report]
 ```
 
 ### Bundling
 
+Run `npm run build` to generate the production bundle on the `dist` directory
 
 ### Unit tests
 
-
-### IDE information
-
-*Atom*
-
-The [https://atom.io/packages/atom-typescript](Atom typescript) package supports a `filesGlob` property on `tsconfig.json` that is not supported by TypeScript transpiler. It automatically derives the file names of `files` property based on `filesGlob`
+Run `npm test` to execute the unit tests using Karma
+Run `npm run coverage` to execute tests and generate coverage reports
 
 ### Useful links
 
@@ -82,14 +61,3 @@ The [https://atom.io/packages/atom-typescript](Atom typescript) package supports
 * [StackOverflow: How to implement a typescript decorator](http://stackoverflow.com/questions/29775830/how-to-implement-a-typescript-decorator)
 * [Decorators & metadata reflection in TypeScript: From Novice to Expert](http://blog.wolksoftware.com/decorators-reflection-javascript-typescript)
 * [How to start writing apps with ES6, Angular 1.x and JSPM](http://martinmicunda.com/2015/02/09/how-to-start-writing-apps-with-es6-angular-1x-and-jspm/)
-
-
-### TODO
-
-- [ ] Add QUnit and Karma support
-- [ ] Check how to bundle web fonts
-- [ ] Add support for source map in test coverage tool. See [gotwarlost/istanbul#122](https://github.com/gotwarlost/istanbul/issues/212)
-- [ ] Turn the decorators `@at.config`, `@at.filter`, `@at.directiveFactory` strongly typed. [https://github.com/ulfryk/angular-typescript] [http://bit.ly/1HYaQw2]
-
-
-### Questions/issues

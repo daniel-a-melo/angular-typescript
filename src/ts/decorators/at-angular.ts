@@ -1,7 +1,5 @@
 //https://github.com/ulfryk/angular-typescript
 
-//import angular from 'angular';
-
 const directiveProperties: string[] = [
     'compile',
     'controller',

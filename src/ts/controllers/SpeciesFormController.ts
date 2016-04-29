@@ -8,13 +8,11 @@ import {controller, inject} from '../decorators/at-angular';
 @inject('$scope')
 export class SpeciesFormController {
 
-  //static $inject = ['$scope'];
   species : ISpecies;
   message : string = '';
 
   constructor($scope : ng.IScope) {}
 
-  //@log
   save() : void {
 
       if (this.species && this.species.name === 'error') {
@@ -29,9 +27,4 @@ export class SpeciesFormController {
 
     }
 
-
-
-
 }
-
-//angular.module(mainModule).controller('speciesFormController', SpeciesFormController);

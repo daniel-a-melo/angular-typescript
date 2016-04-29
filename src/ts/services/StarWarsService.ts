@@ -7,7 +7,6 @@ import {service, inject} from '../decorators/at-angular';
 @inject('$q', '$http')
 export class StarWarsService extends BaseService  {
 
-  //static $inject = ['$q', '$http'];
   private static BASE_URL : string = 'https://swapi.co/api';
 
   constructor($q: ng.IQService, $http: ng.IHttpService) {
@@ -19,5 +18,3 @@ export class StarWarsService extends BaseService  {
   }
 
 }
-
-//angular.module(mainModule).service('starWarsService', StarWarsService);

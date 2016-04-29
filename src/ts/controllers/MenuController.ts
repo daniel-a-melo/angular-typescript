@@ -5,8 +5,6 @@ import {controller, inject} from '../decorators/at-angular';
 @inject('$location')
 export class MenuController {
 
-  //static $inject = ['$location'];
-
   constructor(private $location : ng.ILocationService) {
   }
 
@@ -15,5 +13,3 @@ export class MenuController {
   }
 
 }
-
-//angular.module(mainModule).controller('menuController', MenuController);

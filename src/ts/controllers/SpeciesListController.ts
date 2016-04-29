@@ -7,7 +7,6 @@ import {controller, inject} from '../decorators/at-angular';
 @inject('$scope', '_', 'starWarsService')
 export class SpeciesListController {
 
-  //static $inject = ['$scope', '_', 'starWarsService'];
   private starWarsService : StarWarsService;
   public speciesList : ISpecies[];
 
@@ -22,5 +21,3 @@ export class SpeciesListController {
   }
 
 }
-
-//angular.module(mainModule).controller('speciesListController', SpeciesListController);
