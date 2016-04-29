@@ -1,10 +1,11 @@
 import {mainModule} from '../App';
+import {controller, inject} from '../decorators/at-angular';
 
-//  @at.controller(SwapApp.mainModule, 'menuController')
-//  @at.inject('$location')
+@controller(mainModule, 'menuController')
+@inject('$location')
 export class MenuController {
 
-  static $inject = ['$location'];
+  //static $inject = ['$location'];
 
   constructor(private $location : ng.ILocationService) {
   }
@@ -15,4 +16,4 @@ export class MenuController {
 
 }
 
-angular.module(mainModule).controller('menuController', MenuController);
+//angular.module(mainModule).controller('menuController', MenuController);

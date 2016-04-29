@@ -1,5 +1,5 @@
-// var webpackConfig = require('./webpack.config.js');
-// webpackConfig.entry = {};
+var NPM_EVENT = process.env.npm_lifecycle_event;
+var isCoverage = NPM_EVENT === 'coverage';
 
 
 module.exports = function(config) {
@@ -19,32 +19,23 @@ module.exports = function(config) {
       'karma-junit-reporter',
       'karma-coverage',
       'karma-webpack',
-      'karma-sourcemap-loader',
-      'karma-remap-istanbul',
       require('./karma-remap-coverage.js')
     ],
 
     files : [
-      //'./node_modules/phantomjs-polyfill/bind-polyfill.js',
-      //'app/transpiled/test/**/*Test.js',
-      //'app/transpiled/test/testsBootstrap.js',
       './src/ts/AppConfig.ts',
       './src/test/**/*Test.ts'
     ],
 
     preprocessors: {
-      //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap'],
-      //'app/transpiled/test/testsBootstrap.js' : ['webpack', 'sourcemap',  'coverage'],
-      //'app/transpiled/test/**/*Test.js' : ['webpack', 'sourcemap']
       'src/ts/AppConfig.ts' : ['webpack'],
-      'src/test/**/*Test.ts' : ['webpack' /*, 'sourcemap'*/]
+      'src/test/**/*Test.ts' : ['webpack']
     },
 
     webpack : {
       resolve : {
         extensions: ['', '.js', '.ts'],
       },
-      //extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
       devtool: 'inline-source-map',
       module: {
         loaders: [
@@ -52,7 +43,6 @@ module.exports = function(config) {
           { test: /\.tsx?$/, loader: 'ts-loader' },
         ],
         postLoaders : [
-          //{ test: /\.js$/, exclude: /(__tests__|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
           { test: /\.ts$/, exclude: /(test|node_modules|legacy)\//, loader: 'istanbul-instrumenter' }
         ]
       },
@@ -131,5 +121,12 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true
-  })
+  });
+
+  if (!isCoverage) {
+    config.webpack.module.postLoaders = [];
+    config.reporters = ['dots', 'junit'];
+
+  }
+
 }

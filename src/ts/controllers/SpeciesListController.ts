@@ -1,11 +1,13 @@
 import {StarWarsService} from '../services/StarWarsService';
 import {ISpeciesResult, ISpecies} from '../domain/SpeciesResult';
 import {mainModule} from '../App';
+import {controller, inject} from '../decorators/at-angular';
 
-
+@controller(mainModule, 'speciesListController')
+@inject('$scope', '_', 'starWarsService')
 export class SpeciesListController {
 
-  static $inject = ['$scope', '_', 'starWarsService'];
+  //static $inject = ['$scope', '_', 'starWarsService'];
   private starWarsService : StarWarsService;
   public speciesList : ISpecies[];
 
@@ -21,4 +23,4 @@ export class SpeciesListController {
 
 }
 
-angular.module(mainModule).controller('speciesListController', SpeciesListController);
+//angular.module(mainModule).controller('speciesListController', SpeciesListController);

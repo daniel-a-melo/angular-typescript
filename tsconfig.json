@@ -12,7 +12,8 @@
         "experimentalDecorators": true,
         "inlineSourceMap": false,
         "sourceMap": true,
-        "noEmitHelpers": false
+        "noEmitHelpers": false,
+        "allowSyntheticDefaultImports" : false
     },
     "exclude": [
       "node_modules"

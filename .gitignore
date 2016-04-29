@@ -8,7 +8,7 @@ bundle.js.map
 **/.idea/workspace.xml
 **/.idea/tasks.xml
 npm-debug.log
-src/lib
+src/dependencies
 test-results/coverage/cobertura
 test-results/coverage/html
 test-results/coverage/json/coverage-final.json

@@ -1,5 +1,3 @@
-/// <reference path="../../app-typings/app.d.ts"/>
-
 import 'angular-route';
 import {mainModule} from './App';
 

@@ -1,12 +1,14 @@
 import {ISpecies} from '../domain/SpeciesResult';
 import {log} from '../decorators/LogDecorator';
 import {mainModule} from '../App';
+import {controller, inject} from '../decorators/at-angular';
 
 
-//@at.controller(SwapApp.mainModule, 'speciesFormController')
+@controller(mainModule, 'speciesFormController')
+@inject('$scope')
 export class SpeciesFormController {
 
-  static $inject = ['$scope'];
+  //static $inject = ['$scope'];
   species : ISpecies;
   message : string = '';
 
@@ -32,4 +34,4 @@ export class SpeciesFormController {
 
 }
 
-angular.module(mainModule).controller('speciesFormController', SpeciesFormController);
+//angular.module(mainModule).controller('speciesFormController', SpeciesFormController);
