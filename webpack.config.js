@@ -29,6 +29,7 @@ var webpackConfig = {
     },
     module: {
         loaders: [
+            { test: /\.html$/, loader: 'raw' },
             { test: /\.css$/, loader: 'style!css' },
             { test: /\.tsx?$/, loader: 'ts-loader' },
             //{ test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2$|\.eot$|\.ttf$|\.wav$|\.mp3$/, loader: require.resolve("file-loader") + "?name=../[path][name].[ext]"}

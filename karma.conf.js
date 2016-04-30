@@ -16,6 +16,7 @@ module.exports = function(config) {
     plugins: [
       'karma-phantomjs-launcher',
       'karma-qunit',
+      'karma-ng-html2js-preprocessor',
       'karma-junit-reporter',
       'karma-coverage',
       'karma-webpack',
@@ -24,12 +25,20 @@ module.exports = function(config) {
 
     files : [
       './src/ts/AppConfig.ts',
-      './src/test/**/*Test.ts'
+      './src/test/**/*Test.ts',
+      './src/html/**/*.html'
     ],
 
     preprocessors: {
       'src/ts/AppConfig.ts' : ['webpack'],
-      'src/test/**/*Test.ts' : ['webpack']
+      'src/test/**/*Test.ts' : ['webpack'],
+      'src/html/**/*.html' : ['ng-html2js']
+    },
+
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'src/html/',
+      moduleName: 'app-templates'
     },
 
     webpack : {

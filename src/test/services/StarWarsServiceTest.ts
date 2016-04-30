@@ -1,7 +1,6 @@
 import {StarWarsService} from '../../ts/services/StarWarsService';
 import {ISpeciesResult} from '../../ts/domain/SpeciesResult';
 import {mainModule} from '../../ts/App';
-import 'angular-mocks';
 import {isMatch} from 'lodash';
 
 var $injector : ng.auto.IInjectorService;
@@ -9,7 +8,7 @@ var $httpBackend : angular.IHttpBackendService;
 var $q : ng.IQService;
 
 QUnit.module('StarWarsService', {
-  setup : () => {
+  setupOnce : () => {
     $injector = angular.injector([mainModule, 'ng', 'ngMock']);
     $httpBackend = $injector.get('$httpBackend');
     $q = $injector.get('$q');
