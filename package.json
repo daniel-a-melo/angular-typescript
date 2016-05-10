@@ -7,6 +7,7 @@
     "test": "karma start",
     "tsd": "tsd",
     "dev": "webpack-dev-server --inline --hot --progress --colors",
+    "dev-ie9" : "webpack-dev-server --progress --colors",
     "build": "webpack --display-modules --progress --colors",
     "coverage": "karma start",
     "tsc": "tsc"

@@ -6,40 +6,40 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "jquery/jquery.d.ts": {
-      "commit": "286c198898978cb6045076c3e47f823a02217b41"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "angularjs/angular.d.ts": {
-      "commit": "286c198898978cb6045076c3e47f823a02217b41"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "angularjs/angular-route.d.ts": {
-      "commit": "99942cab1446292c79c4328218abd37621505112"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "systemjs/systemjs.d.ts": {
-      "commit": "67605e10f6eb01c9d4a0d13719d804d6dea9e1cb"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "angularjs/angular-mocks.d.ts": {
-      "commit": "04a025ada3492a22df24ca2d8521c911697721b3"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "sinon/sinon.d.ts": {
-      "commit": "d9fea91e842c2cf5bd0f7d861ac378e571d2ad7c"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "source-map/source-map.d.ts": {
-      "commit": "08ed4e9f1869e37e29514d862e0158b40e550232"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "webpack/webpack.d.ts": {
-      "commit": "08ed4e9f1869e37e29514d862e0158b40e550232"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "uglify-js/uglify-js.d.ts": {
-      "commit": "08ed4e9f1869e37e29514d862e0158b40e550232"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "webpack/webpack-env.d.ts": {
-      "commit": "08ed4e9f1869e37e29514d862e0158b40e550232"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "lodash/lodash.d.ts": {
-      "commit": "08ed4e9f1869e37e29514d862e0158b40e550232"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     },
     "qunit/qunit.d.ts": {
-      "commit": "08ed4e9f1869e37e29514d862e0158b40e550232"
+      "commit": "6d0e826824da52204c1c93f92cecbc961ac84fa9"
     }
   }
 }
