@@ -15,10 +15,10 @@ var ctrlTemplate : string;
 QUnit.module('SpeciesFormController', {
   setupOnce : () => {
     $injector = angular.injector([mainModule, 'ng', 'ngMock', 'app-templates']);
-    $controller = $injector.get('$controller');
+    $controller = $injector.get<ng.IControllerService>('$controller');
     $rootScope = <ng.IRootScopeService> $injector.get('$rootScope');
-    $templateCache = $injector.get('$templateCache');
-    $compile = $injector.get('$compile');
+    $templateCache = $injector.get<ng.ITemplateCacheService>('$templateCache');
+    $compile = $injector.get<ng.ICompileService>('$compile');
     ctrlTemplate = <string> $templateCache.get('speciesForm.html');
   },
   setup : () => {
@@ -61,7 +61,7 @@ QUnit.test('Test save with empty form', (assert : QUnitAssert) => {
 
 QUnit.test('Test message box with sucess message shows up', (assert : QUnitAssert) => {
   let $element = $compile(ctrlTemplate)($newScope);
-  let ctrl = $controller('speciesFormController as ctrl', { $scope : $newScope, $element : $element });
+  let ctrl = $controller<SpeciesFormController>('speciesFormController as ctrl', { $scope : $newScope, $element : $element });
 
   ctrl.species = <ISpecies>{};
   ctrl.species.name = 'Some species';

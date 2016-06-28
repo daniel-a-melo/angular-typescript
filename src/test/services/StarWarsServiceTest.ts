@@ -10,8 +10,8 @@ var $q : ng.IQService;
 QUnit.module('StarWarsService', {
   setupOnce : () => {
     $injector = angular.injector([mainModule, 'ng', 'ngMock']);
-    $httpBackend = $injector.get('$httpBackend');
-    $q = $injector.get('$q');
+    $httpBackend = $injector.get<angular.IHttpBackendService>('$httpBackend');
+    $q = $injector.get<ng.IQService>('$q');
   },
 
   teardown : () => {
@@ -45,7 +45,7 @@ QUnit.test('Test read species sucessfully', (assert : QUnitAssert) => {
 
 
   //var service : StarWarsService = $injector.get('starWarsService');
-  var service = new StarWarsService($q, $injector.get('$http'));
+  var service = new StarWarsService($q, $injector.get<ng.IHttpService>('$http'));
 
   var done = assert.async();
 
